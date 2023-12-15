@@ -1,7 +1,8 @@
 import './App.css';
-import Login from './components/login'
+import Login from './components/Login'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Signin from './components/signin';
+//import Signin from './components/signin';
+//import User from './components/User';
 
 const theme = createTheme({
   palette: {
@@ -18,8 +19,8 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
-        {/* <Login /> */}
-        <Signin />
+        {/* <User /> */}
+        <Login />
       </div>
     </ThemeProvider>
   );
