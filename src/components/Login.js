@@ -9,7 +9,8 @@ import { useNavigate } from 'react-router-dom';
 
 function Login() {
   const navigate = useNavigate();
-  const loginResponse = useSelector((state) => state.user.user);
+  const loginResponse = useSelector((state) => state.user.user.token);
+  // const loginTokin = useSelector((state) => state.user.token);
 
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
@@ -26,7 +27,7 @@ function Login() {
 
   useEffect(() => {
     if (loginResponse) {
-      // navigate("/home"); // uses history object from react-router-dom
+      navigate("/home"); // uses history object from react-router-dom
     }
   }, [loginResponse]);
 
@@ -36,9 +37,6 @@ function Login() {
       username: userName,
       password: password
     }));
-    if (loginResponse) {
-      navigate("/home"); // uses history object from react-router-dom
-    }
   };
 
   return (

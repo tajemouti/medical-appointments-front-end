@@ -5,9 +5,11 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { createUser } from "../features/user/userSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from 'react-router-dom';
 
 
 function SignUp() {
+  const navigate = useNavigate()
   const [dataReg, setDataReg] = useState ({
         user: {
             username: '',
@@ -15,14 +17,15 @@ function SignUp() {
         },
     });
     const dispatch = useDispatch();
-    const createUserResponse = useSelector((state) => state.user.createUserMsg);
-    const handleSubmit = (e) => {
+    const createUserResponse = useSelector((state) => state.user.createUserMsg.token);
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        dispatch(createUser(dataReg));
-        console.log(dataReg);
+      await dispatch(createUser(dataReg));
     }
-    console.log(createUserResponse);
-    useEffect(()=> {
+    useEffect(() => {
+      if (createUserResponse) {
+        navigate('/home')
+      }
     }, [dispatch, createUserResponse] );
 
     const handleUsernameChange = (e) => {
