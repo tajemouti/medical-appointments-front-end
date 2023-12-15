@@ -1,11 +1,11 @@
 import { Button } from '@mui/material';
-import img from '../images/bg.svg'
+import img from '../images/bg-2.svg'
 import TextField from '@mui/material/TextField';
 import React from "react";
 import { useEffect, useState } from "react";
 import { createUser } from "../features/user/userSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 function SignUp() {
@@ -40,10 +40,14 @@ function SignUp() {
       <div className="flex items-center justify-center h-screen bg-cover bg-center" style={{ backgroundImage: `url(${img})` }}>
         <div className='flex items-center justify-center flex-col gap-6 w-4/5 p-12 md:max-w-fit md:max-h-fit bg-white rounded-md'>
           <h1 className='text-gray-800 font-bold text-2xl'>Welcome to <span className='text-[#97BF0F]'>Health Clinic</span></h1>
+          <h2 className='text-gray-800 font-bold text-2xl'>Sign up</h2>
           <form className='flex items-center justify-center flex-col gap-6' onSubmit={(e) => handleSubmit(e)}>
             <TextField id="outlined-basic"  type='text'  onChange={(e) => handleUsernameChange(e)} label="Username" variant="outlined" />
-            <TextField id="outlined-basic" type='password'  onChange={(e) => handlePasswordChange(e)} label="Password" variant="outlined" />
-            <Button type='submit' variant="outlined">Sign Up</Button>
+            <TextField id="outlined-basic" type='password' onChange={(e) => handlePasswordChange(e)} label="Password" variant="outlined" />
+            <div className='flex gap-4'>
+              <Button variant="outlined"><Link to="/">Log in</Link></Button>
+              <Button type='submit' variant="outlined">Sign Up</Button>
+            </div>
           </form>
         </div>
     </div>
