@@ -1,6 +1,6 @@
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Route, Routes } from 'react-router-dom';
-import Login from './components/Login'
+import Login from './components/Login';
 import SignUp from './components/SignUp';
 import Home from './components/Home';
 
@@ -19,10 +19,10 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Routes>
-          <Route path="/"  element={<Login />} />
-          <Route path="/signup"  element={<SignUp />} />
-          <Route path="/home"  element={<Home />} />
-    </Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/home" element={<Home />} />
+      </Routes>
     </ThemeProvider>
   );
 }

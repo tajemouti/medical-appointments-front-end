@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-let url = 'https://medical-appointments-booking-wizard.onrender.com/api/v1';
+const url = 'https://medical-appointments-booking-wizard.onrender.com/api/v1';
 
 const createUser = createAsyncThunk('user/createUser', async (data) => {
   try {
@@ -46,7 +46,7 @@ const initialState = {
   isLoading: false,
   user: {},
   createUserMsg: {},
-  error: undefined
+  error: undefined,
 };
 
 const userSlice = createSlice({
@@ -72,7 +72,6 @@ const userSlice = createSlice({
       .addCase(createUser.fulfilled, (state, action) => {
         state.isLoading = false;
         state.createUserMsg = action.payload;
-        console.log(action.payload);
       })
       .addCase(createUser.rejected, (state, action) => {
         state.isLoading = false;
