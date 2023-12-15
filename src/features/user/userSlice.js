@@ -23,9 +23,8 @@ const createUser = createAsyncThunk('user/createUser', async (data) => {
 });
 
 const loginUser = createAsyncThunk('user/loginUser', async (data) => {
-  url = `${url}/login`;
   try {
-    const response = await fetch(url, {
+    const response = await fetch(`${url}/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -45,9 +44,9 @@ const loginUser = createAsyncThunk('user/loginUser', async (data) => {
 
 const initialState = {
   isLoading: false,
-  user: {}, // { username, token }
-  createUserMsg: {}, // {'token'}
-  error: undefined,
+  user: {},
+  createUserMsg: {},
+  error: undefined
 };
 
 const userSlice = createSlice({

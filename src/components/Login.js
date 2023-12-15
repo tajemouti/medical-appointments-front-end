@@ -1,4 +1,5 @@
 import { Button } from '@mui/material';
+import { useEffect } from 'react';
 import img from '../images/bg.svg'
 import TextField from '@mui/material/TextField';
 import { useState } from 'react';
@@ -7,10 +8,9 @@ import { loginUser } from '../features/user/userSlice';
 
 function Login() {
   const loginResponse = useSelector((state) => state.user.user);
+
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
-
-  console.log(loginResponse);
 
   const handleUsernameChange = (event) => {
     setUserName(event.target.value);
@@ -22,13 +22,20 @@ function Login() {
 
   const dispatch = useDispatch();
 
-  const handleSubmit = (event) => {
+  useEffect(() => {
+    if (loginResponse) {
+      console.log(loginResponse);
+      // Add any logic here that you want to execute after a successful login
+      console.log('go to main page');
+    }
+  }, [loginResponse]);
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    dispatch(loginUser({
+    await dispatch(loginUser({
       username: userName,
       password: password
-    }))
-    // Do whatever you want with the input value
+    }));
   };
 
   return (
