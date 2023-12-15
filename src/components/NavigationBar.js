@@ -1,4 +1,10 @@
 import logo from '../images/logo.svg'
+import fb from '../images/fb.svg'
+import google from '../images/google.svg'
+import x from '../images/x.svg'
+import github from '../images/github.svg'
+import linkedin from '../images/linkedin.svg'
+
 function NavigationBar() {
   return (
     <>
@@ -15,8 +21,15 @@ function NavigationBar() {
             <li className='flex p-4 w-full  text-sm font-medium cursor-pointer border-b border-gray-200 hover:bg-gray-100'>Delete Doctor</li>
           </ul>
         </nav>
-        <footer>
-          <h1>footer</h1>
+        <footer className='flex flex-col gap-4 w-full p-4'>
+          <ul className=' justify-start items-end gap-3.5 inline-flex'>
+            <li className='w-6 h-6 relative'><img src={fb} alt="" /></li>
+            <li className='w-6 h-6 relative'><img src={x} alt="" /></li>
+            <li className='w-6 h-6 relative'><img src={google} alt="" /></li>
+            <li className='w-6 h-6 relative'><img src={github} alt="" /></li>
+            <li className='w-6 h-6 relative'><img src={linkedin} alt="" /></li>
+          </ul>
+          <p className="text-gray-300 text-xs font-medium font-['Inter'] leading-[18px] tracking-[2.88px]">@ 2023 Health Clinic</p>
         </footer>
       </div>
     </>
