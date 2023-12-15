@@ -21,7 +21,7 @@ function NavigationBar() {
             <li className='flex p-4 w-full  text-sm font-medium cursor-pointer border-b border-gray-200 hover:bg-gray-100'>Delete Doctor</li>
           </ul>
         </nav>
-        <footer className='flex flex-col gap-4 w-full p-4'>
+        <footer className='flex flex-col gap-4 w-full pt-4 pb-2 pl-4 pr-4'>
           <ul className=' justify-start items-end gap-3.5 inline-flex'>
             <li className='w-6 h-6 relative'><img src={fb} alt="" /></li>
             <li className='w-6 h-6 relative'><img src={x} alt="" /></li>
