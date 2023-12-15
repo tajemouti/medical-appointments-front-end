@@ -2,7 +2,7 @@ import logo from '../images/logo.svg'
 function NavigationBar() {
   return (
     <>
-      <div className='flex flex-col p-4 justify-between items-center h-[100dvh]'>
+      <div className='flex flex-col p-4 justify-between items-center h-[100dvh] bg-white w-full drop-shadow-md'>
         <div>
           <img src={logo} alt="" />
         </div>
