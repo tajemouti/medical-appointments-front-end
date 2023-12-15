@@ -1,8 +1,8 @@
-import './App.css';
-import Login from './components/Login'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-//import Signin from './components/signin';
-//import User from './components/User';
+import { Route, Routes } from 'react-router-dom';
+import Login from './components/Login'
+import SignUp from './components/SignUp';
+import Home from './components/Home';
 
 const theme = createTheme({
   palette: {
@@ -18,10 +18,11 @@ const theme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <div className="App">
-        {/* <User /> */}
-        <Login />
-      </div>
+      <Routes>
+          <Route path="/"  element={<Login />} />
+          <Route path="/signup"  element={<SignUp />} />
+          <Route path="/home"  element={<Home />} />
+    </Routes>
     </ThemeProvider>
   );
 }

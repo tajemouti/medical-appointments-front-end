@@ -5,8 +5,10 @@ import TextField from '@mui/material/TextField';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../features/user/userSlice';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
+  const navigate = useNavigate();
   const loginResponse = useSelector((state) => state.user.user);
 
   const [userName, setUserName] = useState('');
@@ -24,9 +26,7 @@ function Login() {
 
   useEffect(() => {
     if (loginResponse) {
-      console.log(loginResponse);
-      // Add any logic here that you want to execute after a successful login
-      console.log('go to main page');
+      navigate("/home"); // uses history object from react-router-dom
     }
   }, [loginResponse]);
 
@@ -42,7 +42,7 @@ function Login() {
     <>
       <div className="flex items-center justify-center h-screen bg-cover bg-center" style={{ backgroundImage: `url(${img})` }}>
         <div className='flex items-center justify-center flex-col gap-6 w-4/5 p-12 md:max-w-fit md:max-h-fit bg-white rounded-md'>
-          <h1 className='text-gray-800 font-bold text-2xl'>Welcome to <span className='text-[#97BF0F]'>Shah Clinic</span></h1>
+          <h1 className='text-gray-800 font-bold text-2xl'>Welcome to <span className='text-[#97BF0F]'>Health Clinic</span></h1>
           <form className='flex items-center justify-center flex-col gap-6' onSubmit={(e) => handleSubmit(e)}>
             <TextField id="outlined-basic"  type='text' value={userName} onChange={(e) => handleUsernameChange(e)} label="Username" variant="outlined" />
             <TextField id="outlined-basic" type='password' value={password} onChange={(e) => handlePasswordChange(e)} label="Password" variant="outlined" />
