@@ -2,7 +2,7 @@ import { Button } from '@mui/material';
 import img from '../images/bg.svg'
 import TextField from '@mui/material/TextField';
 
-function Signin() {
+function SignUp() {
 
   return (
     <>
@@ -18,4 +18,4 @@ function Signin() {
   )
 }
 
-export default Signin;
+export default SignUp;

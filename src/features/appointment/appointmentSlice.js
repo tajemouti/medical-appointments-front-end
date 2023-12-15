@@ -1,19 +1,16 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-// let url = 'http://127.0.0.1:3000/api/v1/doctors';
-let url = 'https://medical-appointments-booking-wizard.onrender.com/api/v1/doctors';
-
+let url = 'https://medical-appointments-booking-wizard.onrender.com/api/v1/appointments';
 let token = JSON.parse(localStorage.getItem('user'));
 let authToken = token.token;
-const createDoctor = createAsyncThunk('doctors/createDoctor', async (data) => {
+const createAppointment = createAsyncThunk('user/createAppointment', async (data) => {
   try {
-    const headers = {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${authToken}`,
-    };
     const response = await fetch(url, {
       method: 'POST',
-      headers: headers,
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${authToken}`,
+      },
       body: JSON.stringify(data),
     });
 
@@ -27,7 +24,7 @@ const createDoctor = createAsyncThunk('doctors/createDoctor', async (data) => {
   }
 });
 
-const fetchDoctors = createAsyncThunk('doctors/fetchDoctors', async () => {
+const fetchAppointments = createAsyncThunk('doctors/fetchAppointments', async () => {
   try {
     const headers = {
       'Content-Type': 'application/json',
@@ -50,7 +47,7 @@ const fetchDoctors = createAsyncThunk('doctors/fetchDoctors', async () => {
   }
 });
 
-const fetchDoctor = createAsyncThunk('doctors/fetchDoctor', async (id) => {
+const fetchAppointment = createAsyncThunk('appointments/fetchAppointment', async (id) => {
   try {
     const headers = {
       'Content-Type': 'application/json',
@@ -73,7 +70,7 @@ const fetchDoctor = createAsyncThunk('doctors/fetchDoctor', async (id) => {
   }
 });
 
-const deleteDoctor = createAsyncThunk('doctors/deleteDoctor', async (id) => {
+const deleteAppointment = createAsyncThunk('appointments/deleteAppointment', async (id) => {
   try {
     const headers = {
       'Content-Type': 'application/json',
@@ -97,63 +94,62 @@ const deleteDoctor = createAsyncThunk('doctors/deleteDoctor', async (id) => {
 
 const initialState = {
   isLoading: false,
-  doctors: [],
-  doctor: {},
-  docDeleteMsg: {},
-  createDoctorMsg: {},
+  appointments: [],
+  appointment: {},
+  createAppointmentMsg: {},
+  deleteAppointmentMsg: {},
   error: undefined,
 };
 
-const doctorSlice = createSlice({
-  name: 'doctors',
+const appointmentSlice = createSlice({
+  name: 'appointments',
   initialState,
   extraReducers: (builder) => {
     builder
-      .addCase(createDoctor.pending, (state) => {
+      .addCase(fetchAppointments.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(createDoctor.fulfilled, (state, action) => {
+      .addCase(fetchAppointments.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.createDoctorMsg = action.payload;
-        console.log(action.payload);
+        state.appointments = action.payload;
       })
-      .addCase(createDoctor.rejected, (state, action) => {
+      .addCase(fetchAppointments.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.error.message;
       })
-      .addCase(fetchDoctors.pending, (state) => {
+      .addCase(fetchAppointment.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(fetchDoctors.fulfilled, (state, action) => {
+      .addCase(fetchAppointment.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.doctors = action.payload;
+        state.appointment = action.payload;
         console.log(action.payload);
       })
-      .addCase(fetchDoctors.rejected, (state, action) => {
+      .addCase(fetchAppointment.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.error.message;
       })
-      .addCase(fetchDoctor.pending, (state) => {
+      .addCase(createAppointment.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(fetchDoctor.fulfilled, (state, action) => {
+      .addCase(createAppointment.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.doctor = action.payload;
+        state.createAppointmentMsg = action.payload;
         console.log(action.payload);
       })
-      .addCase(fetchDoctor.rejected, (state, action) => {
+      .addCase(createAppointment.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.error.message;
       })
-      .addCase(deleteDoctor.pending, (state) => {
+      .addCase(deleteAppointment.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(deleteDoctor.fulfilled, (state, action) => {
+      .addCase(deleteAppointment.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.docDeleteMsg = action.payload;
+        state.deleteAppointmentMsg = action.payload;
         console.log(action.payload);
       })
-      .addCase(deleteDoctor.rejected, (state, action) => {
+      .addCase(deleteAppointment.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.error.message;
       })
@@ -161,5 +157,5 @@ const doctorSlice = createSlice({
 
 });
 
-export { createDoctor, fetchDoctors, fetchDoctor, deleteDoctor };
-export default doctorSlice.reducer;
+export { fetchAppointments, fetchAppointment, createAppointment, deleteAppointment };
+export default appointmentSlice.reducer;
