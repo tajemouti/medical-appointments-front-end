@@ -8,7 +8,7 @@ import linkedin from '../images/linkedin.svg'
 function NavigationBar() {
   return (
     <>
-      <div className='flex flex-col pt-4 pb-4 justify-between items-center h-[100dvh] bg-white w-full drop-shadow-md'>
+      <div className='flex flex-col pt-4 pb-1 justify-between items-center h-[100dvh] bg-white w-full drop-shadow-md'>
         <div>
           <img src={logo} alt="" />
         </div>
