@@ -26,7 +26,7 @@ function Login() {
 
   useEffect(() => {
     if (loginResponse) {
-      navigate("/home"); // uses history object from react-router-dom
+      // navigate("/home"); // uses history object from react-router-dom
     }
   }, [loginResponse]);
 
@@ -36,6 +36,9 @@ function Login() {
       username: userName,
       password: password
     }));
+    if (loginResponse) {
+      navigate("/home"); // uses history object from react-router-dom
+    }
   };
 
   return (
@@ -44,7 +47,7 @@ function Login() {
         <div className='flex items-center justify-center flex-col gap-6 w-4/5 p-12 md:max-w-fit md:max-h-fit bg-white rounded-md'>
           <h1 className='text-gray-800 font-bold text-2xl'>Welcome to <span className='text-[#97BF0F]'>Health Clinic</span></h1>
           <form className='flex items-center justify-center flex-col gap-6' onSubmit={(e) => handleSubmit(e)}>
-            <TextField id="outlined-basic"  type='text' value={userName} onChange={(e) => handleUsernameChange(e)} label="Username" variant="outlined" />
+            <TextField id="outlined-basics"  type='text' value={userName} onChange={(e) => handleUsernameChange(e)} label="Username" variant="outlined" />
             <TextField id="outlined-basic" type='password' value={password} onChange={(e) => handlePasswordChange(e)} label="Password" variant="outlined" />
             <Button type='submit' variant="outlined">Login</Button>
           </form>
