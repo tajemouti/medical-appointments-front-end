@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 function DoctorDetails({ doctor }) {
   return (
     <div>
@@ -7,5 +9,14 @@ function DoctorDetails({ doctor }) {
     </div>
   );
 }
+
+DoctorDetails.propTypes = {
+  doctor: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    speciality: PropTypes.string.isRequired,
+    address: PropTypes.string.isRequired,
+    picture: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default DoctorDetails;
