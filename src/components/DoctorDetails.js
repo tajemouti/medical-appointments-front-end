@@ -7,10 +7,10 @@ function DoctorDetails({ doctor }) {
   }
 
   return (
-    <div>
-      <div>
-        <button>
-          <ArrowBackIcon />
+    <div className="flex justify-between w-full h-full">
+      <div className="flex items-end pb-12">
+        <button className="w-[114px] h-[74px] bg-lime-500 rounded-r-[80px]">
+          <ArrowBackIcon className="text-white" />
         </button>
       </div>
       <div className="flex items-end ">
@@ -22,7 +22,7 @@ function DoctorDetails({ doctor }) {
           <h2 className="w-[383px] text-right text-gray-400 text-xl font-normal font-['Inter'] leading-[44px]">{doctor.speciality}</h2>
           <h3 className="w-[383px] text-right text-gray-400 text-sm font-normal font-['Inter'] leading-[44px]">{doctor.address}</h3>
         </div>
-        <button>
+        <button className="p-4 text-white bg-lime-500 rounded-r-[80px] rounded-l-[80px]">
           Book Appointment
         </button>
       </div>
