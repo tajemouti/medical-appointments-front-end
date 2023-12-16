@@ -9,7 +9,6 @@ import { loginUser } from '../features/user/userSlice';
 function Login() {
   const navigate = useNavigate();
   const loginResponse = useSelector((state) => state.user.user.token);
-  // const loginTokin = useSelector((state) => state.user.token);
 
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
