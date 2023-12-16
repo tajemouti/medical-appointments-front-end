@@ -48,8 +48,24 @@ function Login() {
           </h1>
           <h2 className="text-gray-800 font-bold text-2xl">Log in</h2>
           <form className="flex items-center justify-center flex-col gap-6" onSubmit={(e) => handleSubmit(e)}>
-            <TextField id="outlined-basics" type="text" value={userName} onChange={(e) => handleUsernameChange(e)} label="Username" variant="outlined" />
-            <TextField id="outlined-basic" type="password" value={password} onChange={(e) => handlePasswordChange(e)} label="Password" variant="outlined" />
+            <TextField
+              required
+              id="outlined-basics"
+              type="text"
+              value={userName}
+              onChange={(e) => handleUsernameChange(e)}
+              label="Username"
+              variant="outlined"
+            />
+            <TextField
+              required
+              id="outlined-basic"
+              type="password"
+              value={password}
+              onChange={(e) => handlePasswordChange(e)}
+              label="Password"
+              variant="outlined"
+            />
             <div className="flex gap-4">
               <Button type="submit" variant="outlined">Login</Button>
               <Button variant="outlined"><Link to="/signup">Sign up</Link></Button>
