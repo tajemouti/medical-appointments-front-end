@@ -2,9 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const url = 'https://medical-appointments-booking-wizard.onrender.com/api/v1/doctors';
 
-// const token = JSON.parse(localStorage.getItem('user'));
 const user = localStorage.getItem('user');
-console.log('fdgfd', user);
 let authToken = '';
 if (user !== null) {
   const userObject = JSON.parse(user);
@@ -12,7 +10,6 @@ if (user !== null) {
     authToken = userObject.token;
   }
 }
-// const authToken = token;
 
 // Create Doctor
 const createDoctor = createAsyncThunk('doctors/createDoctor', async (data) => {
@@ -54,7 +51,6 @@ const fetchDoctors = createAsyncThunk('doctors/fetchDoctors', async () => {
     }
 
     const data = await response.json();
-    // console.log(data);
     return data;
   } catch (error) {
     return { error: error.message };
@@ -78,7 +74,6 @@ const fetchDoctor = createAsyncThunk('doctors/fetchDoctor', async (id) => {
     }
 
     const data = await response.json();
-    // console.log(data);
     return data;
   } catch (error) {
     return { error: error.message };
@@ -128,7 +123,6 @@ const doctorSlice = createSlice({
       .addCase(createDoctor.fulfilled, (state, action) => {
         state.isLoading = false;
         state.createDoctorMsg = action.payload;
-        // console.log(action.payload);
       })
       .addCase(createDoctor.rejected, (state, action) => {
         state.isLoading = false;
@@ -140,7 +134,6 @@ const doctorSlice = createSlice({
       .addCase(fetchDoctors.fulfilled, (state, action) => {
         state.isLoading = false;
         state.doctors = action.payload;
-        // console.log(action.payload);
       })
       .addCase(fetchDoctors.rejected, (state, action) => {
         state.isLoading = false;
@@ -152,7 +145,6 @@ const doctorSlice = createSlice({
       .addCase(fetchDoctor.fulfilled, (state, action) => {
         state.isLoading = false;
         state.doctor = action.payload;
-        // console.log(action.payload);
       })
       .addCase(fetchDoctor.rejected, (state, action) => {
         state.isLoading = false;
@@ -164,7 +156,6 @@ const doctorSlice = createSlice({
       .addCase(deleteDoctor.fulfilled, (state, action) => {
         state.isLoading = false;
         state.docDeleteMsg = action.payload;
-        // console.log(action.payload);
       })
       .addCase(deleteDoctor.rejected, (state, action) => {
         state.isLoading = false;
