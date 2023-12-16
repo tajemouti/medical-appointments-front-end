@@ -18,6 +18,7 @@ function DoctorDetails({ doctor }) {
         <h2>{doctor.speciality}</h2>
         <h3>{doctor.address}</h3>
       </div>
+      <button>Book Appointment</button>
     </div>
   );
 }
