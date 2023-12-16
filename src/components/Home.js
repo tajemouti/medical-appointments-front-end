@@ -10,6 +10,7 @@ function Home() {
   const dispatch = useDispatch();
   const fetchedDoctors = useSelector((state) => state.doctors.doctors);
   const [startIndex, setStartIndex] = useState(0);
+  const [selectedDoctor, setSelectedDoctor] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,6 +30,10 @@ function Home() {
     if (startIndex > 0) {
       setStartIndex(startIndex - 1);
     }
+  };
+
+  const handleDoctorClick = (doctor) => {
+    setSelectedDoctor(doctor);
   };
 
   const hasDoctorsOnLeft = startIndex > 0;
