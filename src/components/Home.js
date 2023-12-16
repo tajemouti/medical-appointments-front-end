@@ -5,6 +5,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import NavigationBar from './NavigationBar';
 import { fetchDoctors } from '../features/doctors/doctorsSlice';
 import x from '../images/x.svg';
+import DoctorDetails from './DoctorDetails';
 
 function Home() {
   const dispatch = useDispatch();
@@ -46,6 +47,7 @@ function Home() {
           <NavigationBar />
         </div>
         <div className="flex flex-col w-[85%] bg-white justify-center items-center ">
+          <DoctorDetails doctor={selectedDoctor} />
           <h1 className="text-slate-800 text-4xl font-bold font-['Inter'] leading-[44px] mb-8">Our Doctors</h1>
           <div className="flex justify-center items-center gap-4">
             {
