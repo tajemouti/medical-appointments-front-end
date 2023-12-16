@@ -1,4 +1,4 @@
-function DoctorDetail() {
+function DoctorDetails() {
   return (
     <>
       <h1>doctor details is working</h1>
@@ -6,4 +6,4 @@ function DoctorDetail() {
   )
 }
 
-export default DoctorDetail;
+export default DoctorDetails;
