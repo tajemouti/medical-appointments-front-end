@@ -13,6 +13,9 @@ function DoctorDetails({ doctor }) {
           <ArrowBackIcon />
         </button>
       </div>
+      <div className="flex items-end ">
+        <img src={doctor.picture} alt="" />
+      </div>
       <div>
         <h1>{doctor.name}</h1>
         <h2>{doctor.speciality}</h2>
