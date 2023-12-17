@@ -1,8 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const url = 'https://medical-appointments-booking-wizard.onrender.com/api/v1/appointments';
-const token = JSON.parse(localStorage.getItem('user'));
-const authToken = token.token;
+const authToken = JSON.parse(localStorage.getItem('user'));
 
 const createAppointment = createAsyncThunk('user/createAppointment', async (data) => {
   try {

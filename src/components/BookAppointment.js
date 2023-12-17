@@ -73,13 +73,13 @@ function BookAppointment() {
           <NavigationBar />
         </div>
         <div className="flex flex-col w-[85%] bg-white justify-center items-end">
-          <div className="flex flex-col justify-center  items-end gap-4 pr-16 w-full">
+          <div className="flex flex-col justify-center  items-end gap-12 pr-16 w-full">
             <div>
               <h1 className="text-right text-slate-800 text-6xl font-bold font-['Inter'] leading-[72px]">Book Appointment</h1>
             </div>
             <form className="flex items-center justify-center gap-6 flex-1 w-full pl-8">
               <FormControl className="flex flex-1 " sx={{ m: 1, minWidth: 180 }}>
-                <InputLabel id="demo-simple-select-helper-label">Select Doctor</InputLabel>
+                <InputLabel id="demo-simple-select-helper-label">Select your doctor</InputLabel>
                 <Select
                   labelId="demo-simple-select-helper-label"
                   id="demo-simple-select-helper"
@@ -102,7 +102,7 @@ function BookAppointment() {
                   <DemoContainer components={['DatePicker']}>
                     <DatePicker
                       className="flex flex-1"
-                      label="Select Date"
+                      label="Select a date"
                       value={selectedDate}
                       onChange={handleDateChange}
                     />
@@ -110,7 +110,7 @@ function BookAppointment() {
                   <DemoContainer components={['TimePicker']}>
                     <TimePicker
                       className="flex flex-1"
-                      label="Basic time picker"
+                      label="Select a time"
                       value={selectedTime}
                       onChange={handleTimeChange}
                     />
@@ -118,7 +118,7 @@ function BookAppointment() {
                 </LocalizationProvider>
               </div>
               <FormControl className="flex flex-1" sx={{ m: 1, minWidth: 180 }}>
-                <InputLabel id="demo-simple-select-helper-label">Select Doctor</InputLabel>
+                <InputLabel id="demo-simple-select-helper-label">Select a city</InputLabel>
                 <Select
                   labelId="demo-simple-select-helper-label"
                   id="demo-simple-select-helper"
