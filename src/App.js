@@ -21,11 +21,11 @@ function App() {
     <ThemeProvider theme={theme}>
       <Routes>
         {/* public Routes */}
-        <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         {/* private Routes */}
         <Route
-          path="/home"
+          path="/"
           element={(
             <ProtectedRoute>
               <Home />

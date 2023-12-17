@@ -3,7 +3,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 function DoctorDetails({ doctor }) {
   if (!doctor) {
-    return null;
+    return {};
   }
 
   return (

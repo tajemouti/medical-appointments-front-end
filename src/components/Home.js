@@ -20,7 +20,11 @@ function Home() {
     fetchData();
   }, [dispatch]);
 
-  const displayDoctors = fetchedDoctors.slice(startIndex, startIndex + 3);
+  let displayDoctors = [];
+  if (fetchedDoctors.length > 3) {
+    displayDoctors = fetchedDoctors.slice(startIndex, startIndex + 3);
+  }
+
   const handleNextClick = () => {
     if (startIndex + 3 < fetchedDoctors.length) {
       setStartIndex(startIndex + 1);
