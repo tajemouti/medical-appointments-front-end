@@ -1,10 +1,8 @@
-// import TextField from '@mui/material/TextField';
 import dayjs from 'dayjs';
-// import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-// import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
@@ -12,56 +10,27 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { fetchDoctors } from '../features/doctors/doctorsSlice';
 import NavigationBar from './NavigationBar';
-// import { createAppointment } from '../features/appointments/appointmentsSlice';
+import { createAppointment } from '../features/appointments/appointmentsSlice';
 
 function BookAppointment() {
   const [selectedDoctor, setSelectedDoctor] = useState('');
+  const [doctorId, setDoctorId] = useState();
   const [selectedCity, setSelectedCity] = useState('');
   const [selectedDate, setSelectedDate] = useState(dayjs('2022-04-17'));
   const [selectedTime, setSelectedTime] = useState(dayjs());
+  const cities = ['Islamaabad', 'Rabat', 'London', 'Porto'];
 
   const fetchedDoctors = useSelector((state) => state.doctors.doctors);
 
   const dispatch = useDispatch();
-  // const createAppointmentResponse =
-  // useSelector((state) => state.appointments.createAppointmentMsg);
-  // console.log('sfsadfasd', createAppointmentResponse);
-
-  // appointment
-  // const appointmentAfterXDays = 5;
-  // const currentDate = new Date();
-  // const futureDate = new Date(currentDate);
-  // futureDate.setDate(currentDate.getDate() + appointmentAfterXDays);
-
-  // const datetime = futureDate.toISOString();
 
   const handleBookAppointment = () => {
-    // Format the selected date and time
     const formattedDate = selectedDate.format('YYYY-MM-DD');
     const formattedTime = selectedTime.format('HH:mm:ss.SSS');
-
-    // Combine the date and time in the desired format
     const formattedDateTime = `${formattedDate}T${formattedTime}Z`;
     return formattedDateTime;
-  };
-
-  // const dataAppoinment = {
-  //   appointment_time: handleBookAppointment,
-  //   city: selectedCity,
-  //   doctor_id: 1,
-  // };
-
-  useEffect(() => {
-    const fetchData = async () => {
-      await dispatch(fetchDoctors());
-    };
-    fetchData();
-    // dispatch(createAppointment(dataAppoinment));
-  }, [dispatch, selectedDate, selectedTime]);
-
-  const handleSelectedDoctor = (event) => {
-    setSelectedDoctor(event.target.value);
   };
 
   const handleSelectedCity = (event) => {
@@ -76,20 +45,26 @@ function BookAppointment() {
     setSelectedTime(newTime);
   };
 
+  const handleSelectedDoctor = (event) => {
+    const doctor = event.target.value;
+    const doctorObject = fetchedDoctors.find((doc) => doc.name === doctor);
+    setSelectedDoctor(event.target.value);
+    setDoctorId(doctorObject.id);
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    // await dispatch(loginUser({
-    //   username: userName,
-    //   password,
-    // }));
     const dataAppoinment = {
       appointment_time: handleBookAppointment(),
       city: selectedCity,
-      doctor_id: 1,
+      doctor_id: doctorId,
     };
-    console.log('indi', selectedCity, selectedDoctor, selectedDate);
-    console.log('data object', dataAppoinment);
+    dispatch(createAppointment(dataAppoinment));
   };
+
+  useEffect(() => {
+    dispatch(fetchDoctors());
+  }, [dispatch, selectedDoctor, selectedDate, selectedTime]);
 
   return (
     <>
@@ -112,14 +87,15 @@ function BookAppointment() {
                   label="Select doctor"
                   onChange={handleSelectedDoctor}
                 >
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
+                  {fetchedDoctors.map((doctor) => (
+                    <MenuItem
+                      key={doctor.name}
+                      value={doctor.name}
+                    >
+                      {doctor.name}
+                    </MenuItem>
+                  ))}
                 </Select>
-                {/* <FormHelperText>With label + helper text</FormHelperText> */}
               </FormControl>
               <div className="flex flex-2 justify-between gap-8 mb-2">
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -150,14 +126,12 @@ function BookAppointment() {
                   label="Select doctor"
                   onChange={handleSelectedCity}
                 >
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
+                  {cities.map((city) => (
+                    <MenuItem key={city} value={city}>
+                      {city}
+                    </MenuItem>
+                  ))}
                 </Select>
-                {/* <FormHelperText>With label + helper text</FormHelperText> */}
               </FormControl>
             </form>
             <div>
