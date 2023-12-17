@@ -1,5 +1,6 @@
 // import TextField from '@mui/material/TextField';
-import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 // import FormHelperText from '@mui/material/FormHelperText';
@@ -11,9 +12,31 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import NavigationBar from './NavigationBar';
+import { createAppointment } from '../features/appointments/appointmentsSlice';
 
 function BookAppointment() {
   const [doctor, setDoctor] = useState('');
+  const dispatch = useDispatch();
+  const createAppointmentResponse = useSelector((state) => state.appointments.createAppointmentMsg);
+  console.log(createAppointmentResponse);
+
+  // appointment
+  const appointmentAfterXDays = 5;
+  const currentDate = new Date();
+  const futureDate = new Date(currentDate);
+  futureDate.setDate(currentDate.getDate() + appointmentAfterXDays);
+
+  const datetime = futureDate.toISOString();
+  console.log(datetime);
+
+  const dataAppoinment = {
+    doctor_id: 1,
+    appointment_time: datetime,
+  };
+
+  dispatch(createAppointment(dataAppoinment));
+  useEffect(() => {
+  }, []);
 
   const handleChange = (event) => {
     setDoctor(event.target.value);

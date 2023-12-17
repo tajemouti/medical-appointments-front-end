@@ -15,15 +15,15 @@ function NavigationBar() {
         </div>
         <nav className="w-full">
           <ul className="flex flex-col">
-            <NavLink to="/" activeClassName="bg-black">
+            <NavLink to="/">
               <li className="flex p-4 w-full bg-[#97BF0F] text-white text-sm font-medium cursor-pointer border-b border-gray-200">Doctors</li>
             </NavLink>
-            <NavLink to="/bookappointment" activeClassName="bg-black" active>
+            <NavLink to="/bookappointment">
               <li className="flex p-4 w-full  text-sm font-medium cursor-pointer border-b border-gray-200 hover:bg-gray-100">
                 Book Appointment
               </li>
             </NavLink>
-            <NavLink to="/myappointment" activeClassName="bg-black">
+            <NavLink to="/myappointment">
               <li className="flex p-4 w-full  text-sm font-medium cursor-pointer border-b border-gray-200 hover:bg-gray-100">My Appointments</li>
             </NavLink>
             <li className="flex p-4 w-full  text-sm font-medium cursor-pointer border-b border-gray-200 hover:bg-gray-100">Add Doctor</li>
