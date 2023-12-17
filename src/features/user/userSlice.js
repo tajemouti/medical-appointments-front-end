@@ -72,6 +72,7 @@ const userSlice = createSlice({
       .addCase(createUser.fulfilled, (state, action) => {
         state.isLoading = false;
         state.createUserMsg = action.payload;
+        localStorage.setItem('user', JSON.stringify(action.payload));
       })
       .addCase(createUser.rejected, (state, action) => {
         state.isLoading = false;
