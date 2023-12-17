@@ -1,4 +1,5 @@
 // import TextField from '@mui/material/TextField';
+import dayjs from 'dayjs';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import InputLabel from '@mui/material/InputLabel';
@@ -16,9 +17,11 @@ import { createAppointment } from '../features/appointments/appointmentsSlice';
 
 function BookAppointment() {
   const [doctor, setDoctor] = useState('');
+  const [value, setValue] = useState(dayjs('2022-04-17'));
+
   const dispatch = useDispatch();
   const createAppointmentResponse = useSelector((state) => state.appointments.createAppointmentMsg);
-  console.log(createAppointmentResponse);
+  console.log('sfsadfasd', createAppointmentResponse);
 
   // appointment
   const appointmentAfterXDays = 5;
@@ -27,19 +30,23 @@ function BookAppointment() {
   futureDate.setDate(currentDate.getDate() + appointmentAfterXDays);
 
   const datetime = futureDate.toISOString();
-  console.log(datetime);
 
   const dataAppoinment = {
-    doctor_id: 1,
     appointment_time: datetime,
+    city: 'dfsdf',
+    doctor_id: 1,
   };
 
-  dispatch(createAppointment(dataAppoinment));
   useEffect(() => {
-  }, []);
+    dispatch(createAppointment(dataAppoinment));
+  }, [dispatch, value]);
 
   const handleChange = (event) => {
     setDoctor(event.target.value);
+  };
+
+  const handleUsernameChange = (e) => {
+    setValue(e);
   };
 
   return (
@@ -75,7 +82,12 @@ function BookAppointment() {
               <div className="flex flex-2 justify-between gap-8 mb-2">
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DemoContainer components={['DatePicker']}>
-                    <DatePicker className="flex flex-1" label="Basic date picker" />
+                    <DatePicker
+                      className="flex flex-1"
+                      label="Select Date"
+                      // value={value}
+                      onChange={(e) => handleUsernameChange(e)}
+                    />
                   </DemoContainer>
                   <DemoContainer components={['TimePicker']}>
                     <TimePicker className="flex flex-1" label="Basic time picker" />

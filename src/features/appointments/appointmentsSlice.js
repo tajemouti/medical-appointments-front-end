@@ -3,13 +3,14 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 const url = 'https://medical-appointments-booking-wizard.onrender.com/api/v1/appointments';
 const token = JSON.parse(localStorage.getItem('user'));
 const authToken = token.token;
+
 const createAppointment = createAsyncThunk('user/createAppointment', async (data) => {
   try {
     const response = await fetch(url, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${authToken}`,
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem('user'))?.token}`,
       },
       body: JSON.stringify(data),
     });
@@ -140,6 +141,7 @@ const appointmentSlice = createSlice({
       .addCase(createAppointment.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.error.message;
+        console.log(state.error);
       })
       .addCase(deleteAppointment.pending, (state) => {
         state.isLoading = true;
