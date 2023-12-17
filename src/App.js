@@ -5,6 +5,7 @@ import SignUp from './components/SignUp';
 import Home from './components/Home';
 import ProtectedRoute from './utils/ProtectedRoute';
 import BookAppointment from './components/BookAppointment';
+import MyAppointments from './components/MyAppointments';
 
 const theme = createTheme({
   palette: {
@@ -31,13 +32,21 @@ function App() {
             <ProtectedRoute>
               <Home />
             </ProtectedRoute>
-        )}
+          )}
         />
         <Route
           path="/bookappointment"
           element={(
             <ProtectedRoute>
               <BookAppointment />
+            </ProtectedRoute>
+          )}
+        />
+        <Route
+          path="/myappointment"
+          element={(
+            <ProtectedRoute>
+              <MyAppointments />
             </ProtectedRoute>
           )}
         />
