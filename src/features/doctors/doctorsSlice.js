@@ -11,6 +11,9 @@ if (user !== null) {
   }
 }
 
+// const user = localStorage.getItem('user');
+// const authToken = JSON.parse(user).token;
+
 // Create Doctor
 const createDoctor = createAsyncThunk('doctors/createDoctor', async (data) => {
   try {
