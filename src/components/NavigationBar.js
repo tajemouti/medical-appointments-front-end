@@ -15,7 +15,9 @@ function NavigationBar() {
         </div>
         <nav className="w-full">
           <ul className="flex flex-col">
-            <li className="flex p-4 w-full bg-[#97BF0F] text-white text-sm font-medium cursor-pointer border-b border-gray-200">Doctors</li>
+            <Link to="/">
+              <li className="flex p-4 w-full bg-[#97BF0F] text-white text-sm font-medium cursor-pointer border-b border-gray-200">Doctors</li>
+            </Link>
             <Link to="/bookappointment">
               <li className="flex p-4 w-full  text-sm font-medium cursor-pointer border-b border-gray-200 hover:bg-gray-100">
                 Book Appointment

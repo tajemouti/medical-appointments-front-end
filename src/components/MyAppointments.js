@@ -1,6 +1,6 @@
 import NavigationBar from './NavigationBar';
 
-function BookAppointment() {
+function MyAppointments() {
   return (
     <>
       <div className="flex flex-row w-[100dvw]">
@@ -8,11 +8,11 @@ function BookAppointment() {
           <NavigationBar />
         </div>
         <div className="flex flex-col w-[85%] bg-white justify-center items-center ">
-          <h1>Book</h1>
+          <h1>my Book</h1>
         </div>
       </div>
     </>
   );
 }
 
-export default BookAppointment;
+export default MyAppointments;
