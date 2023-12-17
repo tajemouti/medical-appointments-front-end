@@ -1,6 +1,6 @@
 // import TextField from '@mui/material/TextField';
 import dayjs from 'dayjs';
-import { useDispatch, useSelector } from 'react-redux';
+// import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -13,40 +13,82 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import NavigationBar from './NavigationBar';
-import { createAppointment } from '../features/appointments/appointmentsSlice';
+// import { createAppointment } from '../features/appointments/appointmentsSlice';
 
 function BookAppointment() {
-  const [doctor, setDoctor] = useState('');
-  const [value, setValue] = useState(dayjs('2022-04-17'));
+  const [selectedDoctor, setSelectedDoctor] = useState('');
+  const [selectedCity, setSelectedCity] = useState('');
+  const [selectedDate, setSelectedDate] = useState(dayjs('2022-04-17'));
+  const [selectedTime, setSelectedTime] = useState(dayjs());
+
+  const fetchedDoctors = useSelector((state) => state.doctors.doctors);
 
   const dispatch = useDispatch();
-  const createAppointmentResponse = useSelector((state) => state.appointments.createAppointmentMsg);
-  console.log('sfsadfasd', createAppointmentResponse);
+  // const createAppointmentResponse =
+  // useSelector((state) => state.appointments.createAppointmentMsg);
+  // console.log('sfsadfasd', createAppointmentResponse);
 
   // appointment
-  const appointmentAfterXDays = 5;
-  const currentDate = new Date();
-  const futureDate = new Date(currentDate);
-  futureDate.setDate(currentDate.getDate() + appointmentAfterXDays);
+  // const appointmentAfterXDays = 5;
+  // const currentDate = new Date();
+  // const futureDate = new Date(currentDate);
+  // futureDate.setDate(currentDate.getDate() + appointmentAfterXDays);
 
-  const datetime = futureDate.toISOString();
+  // const datetime = futureDate.toISOString();
 
-  const dataAppoinment = {
-    appointment_time: datetime,
-    city: 'dfsdf',
-    doctor_id: 1,
+  const handleBookAppointment = () => {
+    // Format the selected date and time
+    const formattedDate = selectedDate.format('YYYY-MM-DD');
+    const formattedTime = selectedTime.format('HH:mm:ss.SSS');
+
+    // Combine the date and time in the desired format
+    const formattedDateTime = `${formattedDate}T${formattedTime}Z`;
+    return formattedDateTime;
   };
+
+  // const dataAppoinment = {
+  //   appointment_time: handleBookAppointment,
+  //   city: selectedCity,
+  //   doctor_id: 1,
+  // };
 
   useEffect(() => {
-    dispatch(createAppointment(dataAppoinment));
-  }, [dispatch, value]);
+    const fetchData = async () => {
+      await dispatch(fetchDoctors());
+    };
+    fetchData();
+    // dispatch(createAppointment(dataAppoinment));
+  }, [dispatch, selectedDate, selectedTime]);
 
-  const handleChange = (event) => {
-    setDoctor(event.target.value);
+  const handleSelectedDoctor = (event) => {
+    setSelectedDoctor(event.target.value);
   };
 
-  const handleUsernameChange = (e) => {
-    setValue(e);
+  const handleSelectedCity = (event) => {
+    setSelectedCity(event.target.value);
+  };
+
+  const handleDateChange = (newDate) => {
+    setSelectedDate(newDate);
+  };
+
+  const handleTimeChange = (newTime) => {
+    setSelectedTime(newTime);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // await dispatch(loginUser({
+    //   username: userName,
+    //   password,
+    // }));
+    const dataAppoinment = {
+      appointment_time: handleBookAppointment(),
+      city: selectedCity,
+      doctor_id: 1,
+    };
+    console.log('indi', selectedCity, selectedDoctor, selectedDate);
+    console.log('data object', dataAppoinment);
   };
 
   return (
@@ -66,9 +108,9 @@ function BookAppointment() {
                 <Select
                   labelId="demo-simple-select-helper-label"
                   id="demo-simple-select-helper"
-                  value={doctor}
+                  value={selectedDoctor}
                   label="Select doctor"
-                  onChange={handleChange}
+                  onChange={handleSelectedDoctor}
                 >
                   <MenuItem value="">
                     <em>None</em>
@@ -85,12 +127,17 @@ function BookAppointment() {
                     <DatePicker
                       className="flex flex-1"
                       label="Select Date"
-                      // value={value}
-                      onChange={(e) => handleUsernameChange(e)}
+                      value={selectedDate}
+                      onChange={handleDateChange}
                     />
                   </DemoContainer>
                   <DemoContainer components={['TimePicker']}>
-                    <TimePicker className="flex flex-1" label="Basic time picker" />
+                    <TimePicker
+                      className="flex flex-1"
+                      label="Basic time picker"
+                      value={selectedTime}
+                      onChange={handleTimeChange}
+                    />
                   </DemoContainer>
                 </LocalizationProvider>
               </div>
@@ -99,9 +146,9 @@ function BookAppointment() {
                 <Select
                   labelId="demo-simple-select-helper-label"
                   id="demo-simple-select-helper"
-                  value={doctor}
+                  value={selectedCity}
                   label="Select doctor"
-                  onChange={handleChange}
+                  onChange={handleSelectedCity}
                 >
                   <MenuItem value="">
                     <em>None</em>
@@ -116,7 +163,8 @@ function BookAppointment() {
             <div>
               <button
                 className="p-4 self-end text-white bg-lime-500 rounded-r-[80px] rounded-l-[80px]"
-                type="button"
+                type="submit"
+                onClick={handleSubmit}
                 aria-label="Next"
               >
                 Book Appointment

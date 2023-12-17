@@ -41,7 +41,7 @@ const fetchAppointments = createAsyncThunk('doctors/fetchAppointments', async ()
     }
 
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     return data;
   } catch (error) {
     return { error: error.message };
@@ -64,7 +64,7 @@ const fetchAppointment = createAsyncThunk('appointments/fetchAppointment', async
     }
 
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     return data;
   } catch (error) {
     return { error: error.message };
@@ -124,7 +124,7 @@ const appointmentSlice = createSlice({
       .addCase(fetchAppointment.fulfilled, (state, action) => {
         state.isLoading = false;
         state.appointment = action.payload;
-        console.log(action.payload);
+        // console.log(action.payload);
       })
       .addCase(fetchAppointment.rejected, (state, action) => {
         state.isLoading = false;
@@ -136,12 +136,12 @@ const appointmentSlice = createSlice({
       .addCase(createAppointment.fulfilled, (state, action) => {
         state.isLoading = false;
         state.createAppointmentMsg = action.payload;
-        console.log(action.payload);
+        // console.log(action.payload);
       })
       .addCase(createAppointment.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.error.message;
-        console.log(state.error);
+        // console.log(state.error);
       })
       .addCase(deleteAppointment.pending, (state) => {
         state.isLoading = true;
@@ -149,7 +149,7 @@ const appointmentSlice = createSlice({
       .addCase(deleteAppointment.fulfilled, (state, action) => {
         state.isLoading = false;
         state.deleteAppointmentMsg = action.payload;
-        console.log(action.payload);
+        // console.log(action.payload);
       })
       .addCase(deleteAppointment.rejected, (state, action) => {
         state.isLoading = false;
