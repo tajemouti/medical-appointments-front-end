@@ -26,7 +26,9 @@ function NavigationBar() {
             <NavLink to="/myappointment">
               <li className="flex p-4 w-full  text-sm font-medium cursor-pointer border-b border-gray-200 hover:bg-gray-100">My Appointments</li>
             </NavLink>
-            <li className="flex p-4 w-full  text-sm font-medium cursor-pointer border-b border-gray-200 hover:bg-gray-100">Add Doctor</li>
+            <NavLink to="/adddoctor">
+              <li className="flex p-4 w-full  text-sm font-medium cursor-pointer border-b border-gray-200 hover:bg-gray-100">Add Doctor</li>
+            </NavLink>
             <li className="flex p-4 w-full  text-sm font-medium cursor-pointer border-b border-gray-200 hover:bg-gray-100">Delete Doctor</li>
           </ul>
         </nav>
