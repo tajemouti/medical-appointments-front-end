@@ -1,6 +1,13 @@
+import { useSelector } from 'react-redux';
 import NavigationBar from './NavigationBar';
 
 function MyAppointments() {
+  const { isLoading, error} = useSelector((state) => state.appointments);
+
+  if (isLoading) {
+    return <div>Is loading...</div>
+  }
+
   return (
     <>
       <div className="flex flex-row w-[100dvw]">
