@@ -16,7 +16,7 @@ const createDoctor = createAsyncThunk('doctors/createDoctor', async (data) => {
   try {
     const headers = {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${authToken}`,
+      Authorization: `Bearer ${JSON.parse(localStorage.getItem('user'))?.token}`,
     };
     const response = await fetch(url, {
       method: 'POST',
