@@ -10,11 +10,13 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { useNavigate } from 'react-router-dom';
 import { fetchDoctors } from '../features/doctors/doctorsSlice';
-import NavigationBar from './NavigationBar';
 import { createAppointment } from '../features/appointments/appointmentsSlice';
+import NavigationBar from './NavigationBar';
 
 function BookAppointment() {
+  const navigate = useNavigate();
   const [selectedDoctor, setSelectedDoctor] = useState('');
   const [doctorId, setDoctorId] = useState();
   const [selectedCity, setSelectedCity] = useState('');
@@ -60,6 +62,7 @@ function BookAppointment() {
       doctor_id: doctorId,
     };
     dispatch(createAppointment(dataAppoinment));
+    navigate('/myappointment');
   };
 
   useEffect(() => {
