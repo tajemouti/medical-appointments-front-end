@@ -30,28 +30,26 @@ function MyAppointments() {
         <div className="w-1/6">
           <NavigationBar />
         </div>
-        <div className="w-5/6 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-400 p-4">
-          <h1 className="text-2xl font-bold mb-4">My Appointments</h1>
+        <div className=" flex flex-col w-5/6 bg-white  text-gray-700 dark:text-gray-800 p-4 gap-8">
+          <h1 className="text-right text-slate-800 pr-8 pt-12 text-6xl font-bold font-['Inter'] leading-[72px]">My Appointments</h1>
           {appointments.length === 0 ? (
             <p>No appointments found.</p>
           ) : (
             <div className="flex flex-col">
               <table className="w-full text-sm table-auto">
-                <thead className="text-xs bg-primary main-bg-dark dark:bg-secondary dark:text-gray-400">
+                <thead className="text-xs bg-primary main-bg-dark dark:bg-secondary dark:text-gray-800">
                   <tr>
-                    <th className="px-2 md:px-6 py-2">Doctor Name</th>
-                    <th className="px-2 md:px-6 py-2">Appointment Time</th>
-                    <th className="px-2 md:px-6 py-2">City</th>
-                    <th className="px-2 md:px-6 py-2">Actions</th>
+                    <th className="text-start text-base px-2 md:px-6 py-2">Doctor Name</th>
+                    <th className="text-start text-base px-2 md:px-6 py-2">Appointment Time</th>
+                    <th className="text-start text-base px-2 md:px-6 py-2">City</th>
                   </tr>
                 </thead>
                 <tbody>
                   {appointments.map((appointment) => (
-                    <tr key={appointment.id} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                      <td className="px-2 md:px-6 py-2 font-medium">{appointment.doctor_name}</td>
-                      <td className="px-2 md:px-6 py-2">{appointment.appointment_time}</td>
-                      <td className="px-2 md:px-6 py-2">{appointment.city}</td>
-                      <td className="px-2 md:px-6 py-2 cursor-pointer text-red-500 hover:text-red-700">Delete</td>
+                    <tr key={appointment.id} className="bg-white border-b dark:border-gray-300">
+                      <td className="text-gray-600 px-2 md:px-6 py-2 font-medium">{appointment.doctor_name}</td>
+                      <td className="text-gray-600 px-2 md:px-6 py-2">{appointment.appointment_time}</td>
+                      <td className="text-gray-600 px-2 md:px-6 py-2">{appointment.city}</td>
                     </tr>
                   ))}
                 </tbody>
