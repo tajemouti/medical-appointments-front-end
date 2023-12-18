@@ -12,7 +12,7 @@ function MyAppointments() {
   }, [dispatch]);
 
   if (isLoading) {
-    return <div>Is loading...</div>;
+    return <div>Loading...</div>;
   }
 
   if (error) {
@@ -26,42 +26,35 @@ function MyAppointments() {
 
   return (
     <>
-      <div className="flex flex-row w-[100dvw]">
-        <div className="flex w-[15%]">
+      <div className="flex flex-row w-screen">
+        <div className="w-1/6">
           <NavigationBar />
         </div>
-        <div className="flex flex-col w-[85%] bg-white justify-center items-center ">
-          <h1>My Appointments</h1>
+        <div className="w-5/6 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-400 p-4">
+          <h1 className="text-2xl font-bold mb-4">My Appointments</h1>
           {appointments.length === 0 ? (
             <p>No appointments found.</p>
           ) : (
             <div className="flex flex-col">
-              <table className="shadow-[0_8px_30px_rgb(0,0,0,0.12)] food-display w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-
-                <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+              <table className="w-full text-sm table-auto">
+                <thead className="text-xs bg-primary main-bg-dark dark:bg-secondary dark:text-gray-400">
                   <tr>
-                    <th scope="col" className="px-1 md:px-6 py-1.5 py-3">Doctor Name</th>
-                    <th scope="col" className="px-1 md:px-6 py-1.5 py-3">Appointment_Time</th>
-                    <th scope="col" className="px-1 md:px-6 py-1.5 py-3">City</th>
-                    <th scope="col" className="px-1 md:px-6 py-1.5 py-3">Actions</th>
+                    <th className="px-2 md:px-6 py-2">Doctor Name</th>
+                    <th className="px-2 md:px-6 py-2">Appointment Time</th>
+                    <th className="px-2 md:px-6 py-2">City</th>
+                    <th className="px-2 md:px-6 py-2">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
-
                   {appointments.map((appointment) => (
                     <tr key={appointment.id} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                      <th scope="row" className="px-2 md:px-6 py-1 md:py-4 font-medium text-gray-900 md:whitespace-nowrap dark:text-white">{appointment.doctor_name}</th>
-                      <td className="px-1 md:px-6 py-2 md:py-4">{appointment.appointment_time}</td>
-                      <td className="px-1 md:px-6 py-2 md:py-4">
-                        {' '}
-                        {appointment.city}
-                      </td>
-                      <td className="px-1 md:px-6 py-2 md:py-4">del</td>
+                      <td className="px-2 md:px-6 py-2 font-medium">{appointment.doctor_name}</td>
+                      <td className="px-2 md:px-6 py-2">{appointment.appointment_time}</td>
+                      <td className="px-2 md:px-6 py-2">{appointment.city}</td>
+                      <td className="px-2 md:px-6 py-2 cursor-pointer text-red-500 hover:text-red-700">Delete</td>
                     </tr>
-
                   ))}
                 </tbody>
-
               </table>
             </div>
           )}
