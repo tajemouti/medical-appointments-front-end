@@ -20,7 +20,11 @@ function Home() {
     fetchData();
   }, [dispatch]);
 
-  const displayDoctors = fetchedDoctors.slice(startIndex, startIndex + 3);
+  let displayDoctors = [];
+  if (fetchedDoctors.length > 3) {
+    displayDoctors = fetchedDoctors.slice(startIndex, startIndex + 3);
+  }
+
   const handleNextClick = () => {
     if (startIndex + 3 < fetchedDoctors.length) {
       setStartIndex(startIndex + 1);
@@ -37,6 +41,10 @@ function Home() {
     setSelectedDoctor(doctor);
   };
 
+  const handleBackButtom = () => {
+    setSelectedDoctor(null);
+  };
+
   const hasDoctorsOnLeft = startIndex > 0;
   const hasDoctorsOnRight = startIndex + 3 < fetchedDoctors.length;
 
@@ -48,7 +56,7 @@ function Home() {
         </div>
         <div className="flex flex-col w-[85%] bg-white justify-center items-center ">
           {selectedDoctor ? (
-            <DoctorDetails doctor={selectedDoctor} />
+            <DoctorDetails doctor={selectedDoctor} backButton={handleBackButtom} />
           ) : (
             <>
               <h1 className="text-slate-800 text-4xl font-bold font-['Inter'] leading-[44px] mb-8">Our Doctors</h1>

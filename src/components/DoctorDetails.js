@@ -1,15 +1,16 @@
 import PropTypes from 'prop-types';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
-function DoctorDetails({ doctor }) {
+function DoctorDetails({ doctor, backButton }) {
   if (!doctor) {
-    return null;
+    return {};
   }
 
   return (
     <div className="flex justify-between w-full h-full">
       <div className="flex items-end pb-12">
         <button
+          onClick={() => backButton()}
           className="w-[114px] h-[74px] bg-lime-500 rounded-r-[80px]"
           type="button"
           aria-label="Next"
@@ -45,6 +46,7 @@ DoctorDetails.propTypes = {
     address: PropTypes.string.isRequired,
     picture: PropTypes.string.isRequired,
   }).isRequired,
+  backButton: PropTypes.func.isRequired,
 };
 
 export default DoctorDetails;

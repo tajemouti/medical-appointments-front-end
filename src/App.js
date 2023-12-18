@@ -4,6 +4,8 @@ import Login from './components/Login';
 import SignUp from './components/SignUp';
 import Home from './components/Home';
 import ProtectedRoute from './utils/ProtectedRoute';
+import BookAppointment from './components/BookAppointment';
+import MyAppointments from './components/MyAppointments';
 
 const theme = createTheme({
   palette: {
@@ -21,16 +23,32 @@ function App() {
     <ThemeProvider theme={theme}>
       <Routes>
         {/* public Routes */}
-        <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         {/* private Routes */}
         <Route
-          path="/home"
+          path="/"
           element={(
             <ProtectedRoute>
               <Home />
             </ProtectedRoute>
-        )}
+          )}
+        />
+        <Route
+          path="/bookappointment"
+          element={(
+            <ProtectedRoute>
+              <BookAppointment />
+            </ProtectedRoute>
+          )}
+        />
+        <Route
+          path="/myappointment"
+          element={(
+            <ProtectedRoute>
+              <MyAppointments />
+            </ProtectedRoute>
+          )}
         />
       </Routes>
     </ThemeProvider>

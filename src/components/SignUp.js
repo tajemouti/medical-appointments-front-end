@@ -22,7 +22,7 @@ function SignUp() {
   };
   useEffect(() => {
     if (createUserResponse) {
-      navigate('/home');
+      navigate('/');
     }
   }, [dispatch, createUserResponse, navigate]);
 
