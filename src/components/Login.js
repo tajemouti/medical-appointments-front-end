@@ -7,6 +7,7 @@ import img from '../images/bg.svg';
 import { loginUser } from '../features/user/userSlice';
 
 function Login() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const loginResponse = useSelector((state) => state.user.user.token);
 
@@ -20,8 +21,6 @@ function Login() {
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
   };
-
-  const dispatch = useDispatch();
 
   useEffect(() => {
     if (loginResponse) {

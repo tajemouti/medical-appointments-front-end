@@ -18,8 +18,8 @@ function DoctorDetails({ doctor, backButton }) {
           <ArrowBackIcon className="text-white" />
         </button>
       </div>
-      <div className="flex items-end ">
-        <img src={doctor.picture} alt="" />
+      <div className="flex items-end w-[80dvh] justify-center">
+        <img className="max-w-[80%]" src={doctor.picture} alt="" />
       </div>
       <div className="flex flex-col justify-between self-end pb-12 pr-8 h-[70%]">
         <div className="flex flex-col gap-2 items-end">
