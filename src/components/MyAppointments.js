@@ -32,6 +32,9 @@ function MyAppointments() {
         </div>
         <div className="flex flex-col w-[85%] bg-white justify-center items-center ">
           <h1>My Appointments</h1>
+          {appointments.length === 0 ? (
+           <p>No appointments found.</p>
+        ) : (
           <ul>
             {appointments.map((appointment) => (
               <li key={appointment.id}>
@@ -50,6 +53,7 @@ function MyAppointments() {
               </li>
             ))}
           </ul>
+      )}
         </div>
       </div>
     </>
