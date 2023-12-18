@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Button } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchDoctors, deleteDoctor } from '../features/doctors/doctorsSlice';
 import NavigationBar from './NavigationBar';
@@ -36,28 +37,36 @@ const DeleteDoctor = () => {
         <div className="w-1/6">
           <NavigationBar />
         </div>
-        <div className="w-5/6 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-400 p-4">
-          <h1 className="text-2xl font-bold mb-4">Delete a doctor from the following List</h1>
+        <div className=" flex flex-col w-5/6 bg-white  text-gray-700 dark:text-gray-800 p-4 gap-8">
+          <h1 className="text-right text-slate-800 pr-8 pt-12 text-6xl font-bold font-['Inter'] leading-[72px]">My doctors</h1>
           {doctors.length === 0 ? (
             <p>No doctors found.</p>
           ) : (
             <div className="flex flex-col">
-              <ul className="flex flex-col gap-4">
-                {doctors.map((doctor) => (
-                  <li key={doctor.id}>
-                    <div className="flex flex-col">
-                      <img className="w-8 h-8 rounded-full" src={doctor.picture} alt="" />
-                      <span>{doctor.name}</span>
-                    </div>
-                    <div>
-                      <p>{doctor.city}</p>
-                      <button type="button" onClick={() => handleDelete(doctor.id)}>
-                        Delete
-                      </button>
-                    </div>
-                  </li>
-                ))}
-              </ul>
+              <table className="w-full text-sm table-auto">
+                <thead className="text-xs bg-primary main-bg-dark dark:bg-secondary dark:text-gray-800">
+                  <tr>
+                    <th className="text-start text-base px-2 md:px-6 py-2">Image</th>
+                    <th className="text-start text-base px-2 md:px-6 py-2">Name</th>
+                    <th className="text-start text-base px-2 md:px-6 py-2">Speciality</th>
+                    <th className="text-start text-base px-2 md:px-6 py-2">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {doctors.map((doctor) => (
+                    <tr key={doctor.id} className="bg-white border-b dark:border-gray-300">
+                      <td aria-label="dsa" className="text-gray-600 px-2 md:px-6 py-2 font-medium"><img className="w-8 h-8 rounded-full" src={doctor.picture} alt="" /></td>
+                      <td className="text-gray-600 px-2 md:px-6 py-2">{doctor.name}</td>
+                      <td className="text-gray-600 px-2 md:px-6 py-2">{doctor.speciality}</td>
+                      <td className="text-gray-600 px-2 md:px-6 py-2">
+                        <Button variant="outlined" color="error" type="button" onClick={() => handleDelete(doctor.id)}>
+                          Delete
+                        </Button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           )}
         </div>

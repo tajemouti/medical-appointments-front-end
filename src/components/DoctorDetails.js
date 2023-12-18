@@ -1,10 +1,16 @@
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 function DoctorDetails({ doctor, backButton }) {
+  const navigate = useNavigate();
   if (!doctor) {
     return {};
   }
+
+  const handleAppointment = () => {
+    navigate('/bookappointment', { state: { doctor } });
+  };
 
   return (
     <div className="flex justify-between w-full h-full">
@@ -31,6 +37,7 @@ function DoctorDetails({ doctor, backButton }) {
           className="p-4 text-white bg-lime-500 rounded-r-[80px] rounded-l-[80px]"
           type="button"
           aria-label="Next"
+          onClick={handleAppointment}
         >
           Book Appointment
         </button>
