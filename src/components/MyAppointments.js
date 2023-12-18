@@ -1,11 +1,18 @@
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import NavigationBar from './NavigationBar';
+import { fetchAppointments } from '../features/appointments/appointmentsSlice';
 
 function MyAppointments() {
+  const dispatch = useDispatch();
   const { isLoading, error } = useSelector((state) => state.appointments);
 
+  useEffect(() => {
+    dispatch(fetchAppointments());
+  }, [dispatch]);
+
   if (isLoading) {
-    return <div>Is loading...</div>
+    return <div>Is loading...</div>;
   }
 
   if (error) {
