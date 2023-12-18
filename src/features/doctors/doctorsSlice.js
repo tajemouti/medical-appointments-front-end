@@ -84,7 +84,7 @@ const deleteDoctor = createAsyncThunk('doctors/deleteDoctor', async (id) => {
   try {
     const headers = {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${authToken}`,
+      Authorization: `Bearer ${JSON.parse(localStorage.getItem('user'))?.token}`,
     };
 
     const response = await fetch(`${url}/${id}`, {

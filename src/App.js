@@ -7,6 +7,7 @@ import ProtectedRoute from './utils/ProtectedRoute';
 import BookAppointment from './components/BookAppointment';
 import MyAppointments from './components/MyAppointments';
 import AddDoctor from './components/AddDoctor';
+import DeleteDoctor from './components/DeleteDoctor1';
 
 const theme = createTheme({
   palette: {
@@ -56,6 +57,14 @@ function App() {
           element={(
             <ProtectedRoute>
               <AddDoctor />
+            </ProtectedRoute>
+          )}
+        />
+        <Route
+          path="/delete-doctor"
+          element={(
+            <ProtectedRoute>
+              <DeleteDoctor />
             </ProtectedRoute>
           )}
         />
