@@ -5,7 +5,7 @@ import { fetchAppointments } from '../features/appointments/appointmentsSlice';
 
 function MyAppointments() {
   const dispatch = useDispatch();
-  const { isLoading, error } = useSelector((state) => state.appointments);
+  const { appointments, isLoading, error } = useSelector((state) => state.appointments);
 
   useEffect(() => {
     dispatch(fetchAppointments());
@@ -31,7 +31,25 @@ function MyAppointments() {
           <NavigationBar />
         </div>
         <div className="flex flex-col w-[85%] bg-white justify-center items-center ">
-          <h1>my Book</h1>
+          <h1>My Appointments</h1>
+          <ul>
+            {appointments.map((appointment) => (
+              <li key={appointment.id}>
+                <p>
+                  My doctor:
+                  {appointment.doctor_id}
+                </p>
+                <p>
+                  Appointment time:
+                  {appointment.appointment_time}
+                </p>
+                <p>
+                  Appointment site:
+                  {appointment.city}
+                </p>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </>
