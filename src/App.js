@@ -52,7 +52,7 @@ function App() {
           )}
         />
         <Route
-          path="/adddoctor"
+          path="/add-doctor"
           element={(
             <ProtectedRoute>
               <AddDoctor />

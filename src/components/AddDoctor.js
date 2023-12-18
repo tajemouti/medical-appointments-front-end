@@ -99,7 +99,7 @@ function AddDoctorForm() {
                 onClick={(e) => handleSubmit(e)}
                 aria-label="Next"
               >
-                Book Appointment
+                Add Doctor
               </button>
             </div>
           </div>
