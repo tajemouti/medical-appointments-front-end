@@ -2,10 +2,19 @@ import { useSelector } from 'react-redux';
 import NavigationBar from './NavigationBar';
 
 function MyAppointments() {
-  const { isLoading, error} = useSelector((state) => state.appointments);
+  const { isLoading, error } = useSelector((state) => state.appointments);
 
   if (isLoading) {
     return <div>Is loading...</div>
+  }
+
+  if (error) {
+    return (
+      <div>
+        Error:
+        {error}
+      </div>
+    );
   }
 
   return (
