@@ -21,7 +21,7 @@ function BookAppointment() {
   const [selectedDoctor, setSelectedDoctor] = useState('');
   const [doctorId, setDoctorId] = useState();
   const [selectedCity, setSelectedCity] = useState('');
-  const [selectedDate, setSelectedDate] = useState(dayjs('2022-04-17'));
+  const [selectedDate, setSelectedDate] = useState(dayjs());
   const [selectedTime, setSelectedTime] = useState(dayjs());
   const cities = ['Islamaabad', 'Rabat', 'London', 'Porto'];
 
