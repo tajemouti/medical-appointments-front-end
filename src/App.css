@@ -2,6 +2,16 @@
   text-align: center;
 }
 
+.active{
+  background-color: #97BF0F;
+  color: white;
+}
+
+.active:hover{
+  background-color: #739408;
+  color: white;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
