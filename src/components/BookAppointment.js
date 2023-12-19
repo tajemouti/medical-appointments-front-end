@@ -85,8 +85,8 @@ function BookAppointment() {
             <div>
               <h1 className="md:text-right md:text-slate-800 text-4xl md:text-6xl md:font-bold  font-bold text-center md:font-['Inter'] md:leading-[72px]">Book Appointment</h1>
             </div>
-            <form className="flex w-full md:max-w-fit flex-col md:flex-row items-center justify-center gap-6 pl-8">
-              <FormControl className="flex md:flex-1 flex-none w-full" sx={{ m: 1, minWidth: 180 }}>
+            <form className="flex w-full md:max-w-fit flex-col md:flex-row items-center justify-center gap-6 md:pl-8">
+              <FormControl className="flex md:flex-1 flex-none w-full" sx={{ m: 1, minWidth: 200 }}>
                 <InputLabel id="demo-simple-select-helper-label">Select your doctor</InputLabel>
                 <Select
                   labelId="demo-simple-select-helper-label"
@@ -105,9 +105,25 @@ function BookAppointment() {
                   ))}
                 </Select>
               </FormControl>
+              <FormControl className="flex md:flex-1 flex-none w-full" sx={{ m: 1, minWidth: 200 }}>
+                <InputLabel id="demo-simple-select-helper-label">Select a city</InputLabel>
+                <Select
+                  labelId="demo-simple-select-helper-label"
+                  id="demo-simple-select-helper"
+                  value={selectedCity}
+                  label="Select doctor"
+                  onChange={handleSelectedCity}
+                >
+                  {cities.map((city) => (
+                    <MenuItem key={city} value={city}>
+                      {city}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
               <div className="flex flex-2 flex-col md:flex-row justify-between gap-8 mb-2 w-full">
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DemoContainer components={['DatePicker']}>
+                  <DemoContainer className="w-full" components={['DatePicker']}>
                     <DatePicker
                       className="flex flex-1"
                       label="Select a date"
@@ -125,22 +141,6 @@ function BookAppointment() {
                   </DemoContainer>
                 </LocalizationProvider>
               </div>
-              <FormControl className="flex md:flex-1 flex-none w-full" sx={{ m: 1, minWidth: 180 }}>
-                <InputLabel id="demo-simple-select-helper-label">Select a city</InputLabel>
-                <Select
-                  labelId="demo-simple-select-helper-label"
-                  id="demo-simple-select-helper"
-                  value={selectedCity}
-                  label="Select doctor"
-                  onChange={handleSelectedCity}
-                >
-                  {cities.map((city) => (
-                    <MenuItem key={city} value={city}>
-                      {city}
-                    </MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
             </form>
             <div className="flex w-full justify-center md:justify-end">
               <button

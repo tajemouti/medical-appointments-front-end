@@ -50,7 +50,7 @@ function Home() {
 
   return (
     <>
-      <div className="flex flex-row justify-center md:w-[100dvw] md:flex md:flex-row">
+      <div className="flex flex-row h-[100dvh] justify-center md:w-[100dvw] md:flex md:flex-row">
         <div className="md:flex md:w-[15%]">
           <NavigationBar />
         </div>
