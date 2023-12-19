@@ -1,3 +1,6 @@
+import { useState } from 'react';
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 import { NavLink } from 'react-router-dom';
 import logo from '../images/logo.svg';
 import fb from '../images/fb.svg';
@@ -7,11 +10,32 @@ import github from '../images/github.svg';
 import linkedin from '../images/linkedin.svg';
 
 function NavigationBar() {
+  const [showMenu, setShowMenu] = useState(false);
+
+  const toggleMenu = () => {
+    setShowMenu(!showMenu);
+  };
+
   return (
     <>
-      <div className="flex flex-col pt-4 pb-1 justify-between items-center h-[100dvh] bg-white w-full drop-shadow-md">
+      <button
+        type="button"
+        className="md:hidden absolute top-4 left-4 mr-4 p-2 text-gray-500 hover:text-gray-700 focus:outline-none f ocus:ring focus:ring-gray-200"
+        onClick={toggleMenu}
+      >
+        {showMenu ? <CloseIcon /> : <MenuIcon />}
+      </button>
+      {/* <MenuIcon className="cursor-pointer text-gray-500 lg:hidden" onClick={toggleMenu} /> */}
+      <div className={`${showMenu ? 'flex absolute z-50' : 'hidden md:flex'} flex-col pt-4 pb-12 md:pb-1 justify-between items-center h-[100dvh] bg-white w-full drop-shadow-md`}>
         <div>
           <img src={logo} alt="" />
+          <button
+            type="button"
+            className="md:hidden absolute top-4 left-4 mr-4 p-2 text-gray-500 hover:text-gray-700 focus:outline-none f ocus:ring focus:ring-gray-200"
+            onClick={toggleMenu}
+          >
+            {showMenu ? <CloseIcon /> : <MenuIcon />}
+          </button>
         </div>
         <nav className="w-full">
           <ul className="flex flex-col">

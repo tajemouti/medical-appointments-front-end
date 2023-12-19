@@ -51,7 +51,7 @@ function Home() {
   return (
     <>
       <div className="flex flex-row justify-center md:w-[100dvw] md:flex md:flex-row">
-        <div className="hidden md:flex md:w-[15%]">
+        <div className="md:flex md:w-[15%]">
           <NavigationBar />
         </div>
         <div className="flex flex-col md:w-[85%] w-[100%] bg-white justify-center items-center ">
