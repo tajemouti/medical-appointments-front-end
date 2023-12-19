@@ -14,6 +14,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { fetchDoctors } from '../features/doctors/doctorsSlice';
 import { createAppointment } from '../features/appointments/appointmentsSlice';
 import NavigationBar from './NavigationBar';
+import cities from './Cities';
 
 function BookAppointment() {
   const { name, id } = useLocation()?.state?.doctor || {};
@@ -23,7 +24,6 @@ function BookAppointment() {
   const [selectedCity, setSelectedCity] = useState('');
   const [selectedDate, setSelectedDate] = useState(dayjs());
   const [selectedTime, setSelectedTime] = useState(dayjs());
-  const cities = ['Islamaabad', 'Rabat', 'London', 'Porto'];
 
   const fetchedDoctors = useSelector((state) => state.doctors.doctors);
 

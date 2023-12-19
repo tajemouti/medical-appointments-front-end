@@ -1,3 +1,4 @@
+// App.js
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Route, Routes } from 'react-router-dom';
 import Login from './components/Login';
@@ -36,6 +37,7 @@ function App() {
               <Home />
             </ProtectedRoute>
           )}
+          activeClassName="active-link"
         />
         <Route
           path="/bookappointment"
