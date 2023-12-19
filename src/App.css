@@ -2,12 +2,12 @@
   text-align: center;
 }
 
-.active{
-  background-color: #97BF0F;
+.active {
+  background-color: #97bf0f;
   color: white;
 }
 
-.active:hover{
+.active:hover {
   background-color: #739408;
   color: white;
 }
