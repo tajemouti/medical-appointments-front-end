@@ -26,7 +26,7 @@ function NavigationBar() {
         {showMenu ? <CloseIcon /> : <MenuIcon />}
       </button>
       {/* <MenuIcon className="cursor-pointer text-gray-500 lg:hidden" onClick={toggleMenu} /> */}
-      <div className={`${showMenu ? 'flex absolute z-50' : 'hidden md:flex'} flex-col pt-4 pb-12 md:pb-1 justify-between items-center h-[100dvh] bg-white w-full drop-shadow-md`}>
+      <div className={`${showMenu ? 'flex absolute top-0 left-0 z-50' : 'hidden md:flex'} flex-col pt-4 pb-12 md:pb-1 justify-between items-center h-[100dvh] bg-white w-full drop-shadow-md`}>
         <div>
           <img src={logo} alt="" />
           <button
