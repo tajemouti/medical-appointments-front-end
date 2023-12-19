@@ -7,7 +7,7 @@ import ProtectedRoute from './utils/ProtectedRoute';
 import BookAppointment from './components/BookAppointment';
 import MyAppointments from './components/MyAppointments';
 import AddDoctor from './components/AddDoctor';
-import DeleteDoctor from './components/DeleteDoctor1';
+import DeleteDoctor from './components/DeleteDoctor';
 
 const theme = createTheme({
   palette: {
