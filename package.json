@@ -27,7 +27,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test":  "react-scripts test --transformIgnorePatterns \"node_modules/(?!x-date-pickers)/\"",
+    "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!x-date-pickers)/\"",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
