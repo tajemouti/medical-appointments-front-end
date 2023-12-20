@@ -24,7 +24,7 @@ function Login() {
 
   useEffect(() => {
     if (loginResponse) {
-      navigate('/'); // uses history object from react-router-dom
+      navigate('/');
     }
   }, [dispatch, loginResponse, navigate]);
 
