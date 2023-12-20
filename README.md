@@ -21,9 +21,9 @@
 - [🙏 Acknowledgements](#acknowledgements)
 - [📝 License](#license)
 
-# 📖 Medical Appointments Front-end <a name="about-project"></a>
+# 📖 Health Clinic <a name="about-project"></a>
 
-**Medical Appointments Front-end** This repository contains the React/Redux front-end application for the "Doctor Appointments" capstone project. The front-end provides an intuitive user interface for interacting with the booking system. Users can log in with a username, browse a list of doctors, view detailed information about specific doctors, reserve appointments, add new doctors, and manage existing doctors. The application is designed to be responsive, offering a seamless experience on both desktop and mobile devices. The front-end communicates with the Rails back-end API to ensure a cohesive and efficient user experience.
+**Health Clinic** This repository contains the React/Redux front-end application for the "Doctor Appointments" capstone project. The front-end provides an intuitive user interface for interacting with the booking system. Users can log in with a username, browse a list of doctors, view detailed information about specific doctors, reserve appointments, add new doctors, and manage existing doctors. The application is designed to be responsive, offering a seamless experience on both desktop and mobile devices. The front-end communicates with the Rails back-end API to ensure a cohesive and efficient user experience.
 
 ## 🛠 Built With <a name="built-with"></a>
 React, redux, node, Visual Studia Code, WSL
@@ -43,7 +43,7 @@ React, redux, node, Visual Studia Code, WSL
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link]()
+- [Live Demo Link](https://jade-rabanadas-479b96.netlify.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
