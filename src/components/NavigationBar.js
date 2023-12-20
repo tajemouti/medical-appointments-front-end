@@ -16,6 +16,13 @@ function NavigationBar() {
     setShowMenu(!showMenu);
   };
 
+  const handleLogout = () => {
+    // Remove the token from local storage
+    localStorage.removeItem('user');
+    // Redirect to the login page
+    window.location.reload();
+  };
+
   return (
     <>
       <button
@@ -59,6 +66,11 @@ function NavigationBar() {
             <NavLink to="/delete-doctor" className="active-link">
               <li className="flex p-4 w-full text-sm font-medium cursor-pointer border-b border-gray-200">Delete Doctor</li>
             </NavLink>
+            <li className="flex p-4 w-full text-sm font-medium cursor-pointer border-b border-gray-200">
+              <button type="button" onClick={handleLogout} className="focus:outline-none">
+                Logout
+              </button>
+            </li>
           </ul>
         </nav>
         <footer className="flex flex-col gap-4 w-full pt-4 pb-2 pl-4 pr-4">
