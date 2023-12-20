@@ -1,0 +1,228 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests DeleteDoctor component should render page 1`] = `
+<div
+  className="flex flex-row w-[100dvw] h-[100dvh]"
+>
+  <div
+    className="md:flex md:w-[15%]"
+  >
+    <button
+      className="md:hidden absolute top-4 left-4 mr-4 p-2 text-gray-500 hover:text-gray-700 focus:outline-none f ocus:ring focus:ring-gray-200"
+      onClick={[Function]}
+      type="button"
+    >
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        data-testid="MenuIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+        />
+      </svg>
+    </button>
+    <div
+      className="hidden md:flex flex-col pt-4 pb-12 md:pb-1 justify-between items-center h-[100dvh] bg-white  w-full drop-shadow-md"
+    >
+      <div>
+        <img
+          alt=""
+          src="logo.svg"
+        />
+        <button
+          className="md:hidden absolute top-4 left-4 mr-4 p-2 text-gray-500 hover:text-gray-700 focus:outline-none f ocus:ring focus:ring-gray-200"
+          onClick={[Function]}
+          type="button"
+        >
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="MenuIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+            />
+          </svg>
+        </button>
+      </div>
+      <nav
+        className="w-full"
+      >
+        <ul
+          className="flex flex-col"
+        >
+          <a
+            aria-current="page"
+            className="active-link active"
+            href="/"
+            onClick={[Function]}
+          >
+            <li
+              className="flex p-4 w-full text-sm font-medium cursor-pointer border-b border-gray-200"
+            >
+              Doctors
+            </li>
+          </a>
+          <a
+            className="active-link"
+            href="/bookappointment"
+            onClick={[Function]}
+          >
+            <li
+              className="flex p-4 w-full text-sm font-medium cursor-pointer border-b border-gray-200"
+            >
+              Book Appointment
+            </li>
+          </a>
+          <a
+            className="active-link"
+            href="/myappointment"
+            onClick={[Function]}
+          >
+            <li
+              className="flex p-4 w-full text-sm font-medium cursor-pointer border-b border-gray-200"
+            >
+              My Appointments
+            </li>
+          </a>
+          <a
+            className="active-link"
+            href="/add-doctor"
+            onClick={[Function]}
+          >
+            <li
+              className="flex p-4 w-full text-sm font-medium cursor-pointer border-b border-gray-200"
+            >
+              Add Doctor
+            </li>
+          </a>
+          <a
+            className="active-link"
+            href="/delete-doctor"
+            onClick={[Function]}
+          >
+            <li
+              className="flex p-4 w-full text-sm font-medium cursor-pointer border-b border-gray-200"
+            >
+              Delete Doctor
+            </li>
+          </a>
+          <li
+            className="flex p-4 w-full text-sm font-medium cursor-pointer border-b border-gray-200"
+          >
+            <button
+              className="focus:outline-none"
+              onClick={[Function]}
+              type="button"
+            >
+              Logout
+            </button>
+          </li>
+        </ul>
+      </nav>
+      <footer
+        className="flex flex-col gap-4 w-full pt-4 pb-2 pl-4 pr-4"
+      >
+        <ul
+          className=" justify-start items-end gap-3.5 inline-flex"
+        >
+          <li
+            className="w-6 h-6 relative"
+          >
+            <img
+              alt=""
+              src="fb.svg"
+            />
+          </li>
+          <li
+            className="w-6 h-6 relative"
+          >
+            <img
+              alt=""
+              src="x.svg"
+            />
+          </li>
+          <li
+            className="w-6 h-6 relative"
+          >
+            <img
+              alt=""
+              src="google.svg"
+            />
+          </li>
+          <li
+            className="w-6 h-6 relative"
+          >
+            <img
+              alt=""
+              src="github.svg"
+            />
+          </li>
+          <li
+            className="w-6 h-6 relative"
+          >
+            <img
+              alt=""
+              src="linkedin.svg"
+            />
+          </li>
+        </ul>
+        <p
+          className="text-gray-300 text-xs font-medium font-['Inter'] leading-[18px] tracking-[2.88px]"
+        >
+          @ 2023 Health Clinic
+        </p>
+      </footer>
+    </div>
+  </div>
+  <div
+    className=" flex flex-col md:w-5/6 bg-white  text-gray-700 dark:text-gray-800 p-4 w-full md:pr-16 pr-0 gap-8"
+  >
+    <h1
+      className="md:text-right md:text-slate-800 text-4xl md:text-6xl md:font-bold  font-bold text-center md:font-['Inter'] md:leading-[72px]"
+    >
+      Delete Doctors
+    </h1>
+    <div
+      className="flex flex-col"
+    >
+      <table
+        className="w-full text-sm table-auto"
+      >
+        <thead
+          className="text-xs bg-primary main-bg-dark dark:bg-secondary dark:text-gray-800"
+        >
+          <tr>
+            <th
+              className="text-start text-base px-2 md:px-6 py-2 hidden md:block"
+            >
+              Image
+            </th>
+            <th
+              className="text-start text-base px-2 md:px-6 py-2"
+            >
+              Name
+            </th>
+            <th
+              className="text-start text-base px-2 md:px-6 py-2"
+            >
+              Speciality
+            </th>
+            <th
+              className="text-start text-base px-2 md:px-6 py-2"
+            >
+              Action
+            </th>
+          </tr>
+        </thead>
+        <tbody />
+      </table>
+    </div>
+  </div>
+</div>
+`;

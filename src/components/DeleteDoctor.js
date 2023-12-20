@@ -6,7 +6,9 @@ import NavigationBar from './NavigationBar';
 
 const DeleteDoctor = () => {
   const dispatch = useDispatch();
-  const { doctors, isLoading, error } = useSelector((state) => state.doctors);
+  const isLoading = useSelector((state) => state.doctors.isLoading);
+  const error = useSelector((state) => state.doctors.error);
+  const doctors = useSelector((state) => state.doctors.doctors);
 
   useEffect(() => {
     dispatch(fetchDoctors());
@@ -39,7 +41,7 @@ const DeleteDoctor = () => {
         </div>
         <div className=" flex flex-col md:w-5/6 bg-white  text-gray-700 dark:text-gray-800 p-4 w-full md:pr-16 pr-0 gap-8">
           <h1 className="md:text-right md:text-slate-800 text-4xl md:text-6xl md:font-bold  font-bold text-center md:font-['Inter'] md:leading-[72px]">Delete Doctors</h1>
-          {doctors.length === 0 ? (
+          {doctors?.length === 0 ? (
             <p>No doctors found.</p>
           ) : (
             <div className="flex flex-col">
@@ -53,7 +55,7 @@ const DeleteDoctor = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {doctors.map((doctor) => (
+                  {doctors?.map((doctor) => (
                     <tr key={doctor.id} className="bg-white border-b dark:border-gray-300">
                       <td aria-label="dsa" className="text-gray-600 px-2 md:px-6 py-2 font-medium hidden md:block"><img className="w-8 h-8 rounded-full" src={doctor.picture} alt="" /></td>
                       <td className="text-gray-600 px-2 md:px-6 py-2">{doctor.name}</td>
