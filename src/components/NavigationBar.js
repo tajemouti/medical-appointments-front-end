@@ -11,7 +11,6 @@ import linkedin from '../images/linkedin.svg';
 
 function NavigationBar() {
   const [showMenu, setShowMenu] = useState(false);
-  // const [active, setActive] = useState(true);
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
@@ -39,22 +38,26 @@ function NavigationBar() {
         </div>
         <nav className="w-full">
           <ul className="flex flex-col">
-            <NavLink to="/" activeClassName="active-link">
+            <NavLink to="/" className="active-link">
               <li className="flex p-4 w-full text-sm font-medium cursor-pointer border-b border-gray-200">Doctors</li>
             </NavLink>
-            <NavLink to="/bookappointment" activeClassName="active-link">
-              <li className="flex p-4 w-full  text-sm font-medium cursor-pointer border-b border-gray-200">
+
+            <NavLink to="/bookappointment" className="active-link">
+              <li className="flex p-4 w-full text-sm font-medium cursor-pointer border-b border-gray-200">
                 Book Appointment
               </li>
             </NavLink>
-            <NavLink to="/myappointment" activeClassName="active-link">
-              <li className="flex p-4 w-full  text-sm font-medium cursor-pointer border-b border-gray-200 ">My Appointments</li>
+
+            <NavLink to="/myappointment" className="active-link">
+              <li className="flex p-4 w-full text-sm font-medium cursor-pointer border-b border-gray-200">My Appointments</li>
             </NavLink>
-            <NavLink to="/add-doctor" activeClassName="active-link">
-              <li className="flex p-4 w-full  text-sm font-medium cursor-pointer border-b border-gray-200 ">Add Doctor</li>
+
+            <NavLink to="/add-doctor" className="active-link">
+              <li className="flex p-4 w-full text-sm font-medium cursor-pointer border-b border-gray-200">Add Doctor</li>
             </NavLink>
-            <NavLink to="/delete-doctor" activeClassName="active-link">
-              <li className="flex p-4 w-full  text-sm font-medium cursor-pointer border-b border-gray-200">Delete Doctor</li>
+
+            <NavLink to="/delete-doctor" className="active-link">
+              <li className="flex p-4 w-full text-sm font-medium cursor-pointer border-b border-gray-200">Delete Doctor</li>
             </NavLink>
           </ul>
         </nav>
