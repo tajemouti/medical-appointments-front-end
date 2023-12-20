@@ -42,20 +42,21 @@ function AddDoctorForm() {
 
   return (
     <>
-      <div className="flex flex-row w-[100dvw]">
-        <div className="flex w-[15%]">
+      <div className="flex flex-row justify-center items-center w-[100dvw] h-[100dvh]">
+        <div className="md:flex md:w-[15%]">
           <NavigationBar />
         </div>
-        <div className="flex flex-col w-[85%] bg-white justify-center items-end">
-          <div className="flex flex-col justify-center  items-end gap-12 pr-16 w-full">
+        <div className="flex flex-col h-full w-[85%] bg-white justify-center items-end">
+          <div className="flex flex-col h-full justify-center items-center  md:items-end gap-12 md:pr-16 pr-0 w-full">
             <div>
-              <h1 className="text-right text-slate-800 text-6xl font-bold font-['Inter'] leading-[72px]">Add Doctor</h1>
+              <h1 className="md:text-right md:text-slate-800 text-4xl md:text-6xl md:font-bold  font-bold text-center md:font-['Inter'] md:leading-[72px]">Add Doctor</h1>
             </div>
             <form
-              className="flex items-center justify-center gap-6"
+              className="flex items-center flex-col w-full md:flex-row justify-center md:pl-4 gap-6"
               onSubmit={(e) => handleSubmit(e)}
             >
               <TextField
+                className="w-full"
                 required
                 id="outlined-basics"
                 type="text"
@@ -65,6 +66,7 @@ function AddDoctorForm() {
                 variant="outlined"
               />
               <TextField
+                className="w-full"
                 required
                 id="outlined-basic"
                 type="text"
@@ -74,6 +76,7 @@ function AddDoctorForm() {
                 variant="outlined"
               />
               <TextField
+                className="w-full"
                 required
                 id="outlined-basic"
                 type="text"
@@ -83,6 +86,7 @@ function AddDoctorForm() {
                 variant="outlined"
               />
               <TextField
+                className="w-full"
                 required
                 id="outlined-basic"
                 type="text"

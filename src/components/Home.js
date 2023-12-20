@@ -21,7 +21,7 @@ function Home() {
   }, [dispatch]);
 
   let displayDoctors = [];
-  if (fetchedDoctors.length > 3) {
+  if (fetchedDoctors && fetchedDoctors.length > 3) {
     displayDoctors = fetchedDoctors.slice(startIndex, startIndex + 3);
   }
 
@@ -46,21 +46,21 @@ function Home() {
   };
 
   const hasDoctorsOnLeft = startIndex > 0;
-  const hasDoctorsOnRight = startIndex + 3 < fetchedDoctors.length;
+  const hasDoctorsOnRight = startIndex + 3 < fetchedDoctors?.length;
 
   return (
     <>
-      <div className="flex flex-row w-[100dvw]">
-        <div className="flex w-[15%]">
+      <div className="flex flex-row h-[100dvh] justify-center md:w-[100dvw] md:flex md:flex-row">
+        <div className="md:flex md:w-[15%]">
           <NavigationBar />
         </div>
-        <div className="flex flex-col w-[85%] bg-white justify-center items-center ">
+        <div className="flex flex-col md:w-[85%] w-[100%] bg-white justify-center items-center ">
           {selectedDoctor ? (
             <DoctorDetails doctor={selectedDoctor} backButton={handleBackButtom} />
           ) : (
             <>
               <h1 className="text-slate-800 text-4xl font-bold font-['Inter'] leading-[44px] mb-8">Our Doctors</h1>
-              <div className="flex justify-center items-center gap-4">
+              <div className="flex flex-col md:flex md:flex-row md:justify-center md:items-center gap-4">
                 {
                   displayDoctors.map((doctor) => (
                     <button
@@ -88,7 +88,7 @@ function Home() {
               </div>
               <div className="flex justify-between w-[85%] mt-4 absolute">
                 <button
-                  className={`w-[114px] h-[74px] ${hasDoctorsOnLeft ? 'bg-lime-500' : 'bg-gray-300'} rounded-r-[80px]`}
+                  className={`hidden md:block md:w-[114px] md:h-[74px] md:rounded-r-[80px] ${hasDoctorsOnLeft ? 'bg-lime-500' : 'bg-gray-300'} `}
                   type="button"
                   onClick={handlePrevClick}
                   disabled={!hasDoctorsOnLeft}
@@ -98,7 +98,7 @@ function Home() {
                 </button>
 
                 <button
-                  className={`w-[114px] h-[74px] ${hasDoctorsOnRight ? 'bg-lime-500' : 'bg-gray-300'} rounded-l-[80px]`}
+                  className={`hidden md:block md:w-[114px] md:h-[74px] md:rounded-l-[80px] ${hasDoctorsOnRight ? 'bg-lime-500' : 'bg-gray-300'}`}
                   type="button"
                   onClick={handleNextClick}
                   disabled={!hasDoctorsOnRight}

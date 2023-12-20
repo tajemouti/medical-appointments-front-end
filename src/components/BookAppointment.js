@@ -14,6 +14,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { fetchDoctors } from '../features/doctors/doctorsSlice';
 import { createAppointment } from '../features/appointments/appointmentsSlice';
 import NavigationBar from './NavigationBar';
+import cities from './Cities';
 
 function BookAppointment() {
   const { name, id } = useLocation()?.state?.doctor || {};
@@ -21,9 +22,8 @@ function BookAppointment() {
   const [selectedDoctor, setSelectedDoctor] = useState('');
   const [doctorId, setDoctorId] = useState();
   const [selectedCity, setSelectedCity] = useState('');
-  const [selectedDate, setSelectedDate] = useState(dayjs('2022-04-17'));
+  const [selectedDate, setSelectedDate] = useState(dayjs());
   const [selectedTime, setSelectedTime] = useState(dayjs());
-  const cities = ['Islamaabad', 'Rabat', 'London', 'Porto'];
 
   const fetchedDoctors = useSelector((state) => state.doctors.doctors);
 
@@ -76,17 +76,17 @@ function BookAppointment() {
 
   return (
     <>
-      <div className="flex flex-row w-[100dvw]">
-        <div className="flex w-[15%]">
+      <div className="flex flex-row justify-center items-center md:items-end w-[100dvw] h-[100dvh]">
+        <div className="md:flex md:w-[15%]">
           <NavigationBar />
         </div>
-        <div className="flex flex-col w-[85%] bg-white justify-center items-end">
-          <div className="flex flex-col justify-center  items-end gap-12 pr-16 w-full">
+        <div className="flex flex-col h-full items-center md:items-end w-[85%] bg-white justify-center">
+          <div className="flex h-full flex-col justify-center  items-end gap-12 md:pr-16 pr-0 w-full">
             <div>
-              <h1 className="text-right text-slate-800 text-6xl font-bold font-['Inter'] leading-[72px]">Book Appointment</h1>
+              <h1 className="md:text-right md:text-slate-800 text-4xl md:text-6xl md:font-bold  font-bold text-center md:font-['Inter'] md:leading-[72px]">Book Appointment</h1>
             </div>
-            <form className="flex items-center justify-center gap-6 flex-1 w-full pl-8">
-              <FormControl className="flex flex-1 " sx={{ m: 1, minWidth: 180 }}>
+            <form className="flex w-full md:max-w-fit flex-col md:flex-row items-center justify-center gap-6 md:pl-8">
+              <FormControl className="flex md:flex-1 flex-none w-full" sx={{ m: 1, minWidth: 200 }}>
                 <InputLabel id="demo-simple-select-helper-label">Select your doctor</InputLabel>
                 <Select
                   labelId="demo-simple-select-helper-label"
@@ -95,7 +95,7 @@ function BookAppointment() {
                   label="Select doctor"
                   onChange={handleSelectedDoctor}
                 >
-                  {fetchedDoctors.map((doctor) => (
+                  {fetchedDoctors?.map((doctor) => (
                     <MenuItem
                       key={doctor.name}
                       value={doctor.name}
@@ -105,27 +105,7 @@ function BookAppointment() {
                   ))}
                 </Select>
               </FormControl>
-              <div className="flex flex-2 justify-between gap-8 mb-2">
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DemoContainer components={['DatePicker']}>
-                    <DatePicker
-                      className="flex flex-1"
-                      label="Select a date"
-                      value={selectedDate}
-                      onChange={handleDateChange}
-                    />
-                  </DemoContainer>
-                  <DemoContainer components={['TimePicker']}>
-                    <TimePicker
-                      className="flex flex-1"
-                      label="Select a time"
-                      value={selectedTime}
-                      onChange={handleTimeChange}
-                    />
-                  </DemoContainer>
-                </LocalizationProvider>
-              </div>
-              <FormControl className="flex flex-1" sx={{ m: 1, minWidth: 180 }}>
+              <FormControl className="flex md:flex-1 flex-none w-full" sx={{ m: 1, minWidth: 200 }}>
                 <InputLabel id="demo-simple-select-helper-label">Select a city</InputLabel>
                 <Select
                   labelId="demo-simple-select-helper-label"
@@ -141,8 +121,28 @@ function BookAppointment() {
                   ))}
                 </Select>
               </FormControl>
+              <div className="flex flex-2 flex-col md:flex-row justify-between gap-8 mb-2 w-full">
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DemoContainer className="w-full" components={['DatePicker']}>
+                    <DatePicker
+                      className="flex flex-1"
+                      label="Select a date"
+                      value={selectedDate}
+                      onChange={handleDateChange}
+                    />
+                  </DemoContainer>
+                  <DemoContainer components={['TimePicker']}>
+                    <TimePicker
+                      className="flex md:flex-1 flex-none"
+                      label="Select a time"
+                      value={selectedTime}
+                      onChange={handleTimeChange}
+                    />
+                  </DemoContainer>
+                </LocalizationProvider>
+              </div>
             </form>
-            <div>
+            <div className="flex w-full justify-center md:justify-end">
               <button
                 className="p-4 self-end text-white bg-lime-500 rounded-r-[80px] rounded-l-[80px]"
                 type="submit"

@@ -2,6 +2,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Route, Routes } from 'react-router-dom';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
+import './App.css';
 import Home from './components/Home';
 import ProtectedRoute from './utils/ProtectedRoute';
 import BookAppointment from './components/BookAppointment';

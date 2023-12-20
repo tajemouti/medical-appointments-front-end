@@ -1,4 +1,3 @@
 module.exports = {
-  // eslint-disable-next-line
-  useMapEvents: () => {},
-};
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  useMapEvents: () => {},};
