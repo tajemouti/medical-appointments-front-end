@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const url = 'https://medical-appointments-booking-wizard.onrender.com/api/v1/appointments';
-const authToken = JSON.parse(localStorage.getItem('user'));
 
 const createAppointment = createAsyncThunk('user/createAppointment', async (data) => {
   try {
@@ -46,50 +45,6 @@ const fetchAppointments = createAsyncThunk('doctors/fetchAppointments', async ()
   }
 });
 
-const fetchAppointment = createAsyncThunk('appointments/fetchAppointment', async (id) => {
-  try {
-    const headers = {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${authToken}`,
-    };
-
-    const response = await fetch(`${url}/${id}`, {
-      headers,
-    });
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    return { error: error.message };
-  }
-});
-
-const deleteAppointment = createAsyncThunk('appointments/deleteAppointment', async (id) => {
-  try {
-    const headers = {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${authToken}`,
-    };
-
-    const response = await fetch(`${url}/${id}`, {
-      method: 'DELETE',
-      headers,
-    });
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-
-    return await response.json();
-  } catch (error) {
-    return { error: error.message };
-  }
-});
-
 const initialState = {
   isLoading: false,
   appointments: [],
@@ -115,17 +70,6 @@ const appointmentSlice = createSlice({
         state.isLoading = false;
         state.error = action.error.message;
       })
-      .addCase(fetchAppointment.pending, (state) => {
-        state.isLoading = true;
-      })
-      .addCase(fetchAppointment.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.appointment = action.payload;
-      })
-      .addCase(fetchAppointment.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.error.message;
-      })
       .addCase(createAppointment.pending, (state) => {
         state.isLoading = true;
       })
@@ -136,17 +80,6 @@ const appointmentSlice = createSlice({
       .addCase(createAppointment.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.error.message;
-      })
-      .addCase(deleteAppointment.pending, (state) => {
-        state.isLoading = true;
-      })
-      .addCase(deleteAppointment.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.deleteAppointmentMsg = action.payload;
-      })
-      .addCase(deleteAppointment.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.error.message;
       });
   },
 
@@ -154,8 +87,6 @@ const appointmentSlice = createSlice({
 
 export {
   fetchAppointments,
-  fetchAppointment,
   createAppointment,
-  deleteAppointment,
 };
 export default appointmentSlice.reducer;
