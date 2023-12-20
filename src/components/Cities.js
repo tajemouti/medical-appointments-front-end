@@ -9,10 +9,6 @@ const cities = [
   'Berlin',
   'Cairo',
   'Rio de Janeiro',
-  'Dubai',
-  'San Francisco',
-  'Beijing',
-  'Moscow',
 ];
 
 export default cities;
