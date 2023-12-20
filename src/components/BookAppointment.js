@@ -95,7 +95,7 @@ function BookAppointment() {
                   label="Select doctor"
                   onChange={handleSelectedDoctor}
                 >
-                  {fetchedDoctors.map((doctor) => (
+                  {fetchedDoctors?.map((doctor) => (
                     <MenuItem
                       key={doctor.name}
                       value={doctor.name}

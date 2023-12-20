@@ -21,7 +21,7 @@ function Home() {
   }, [dispatch]);
 
   let displayDoctors = [];
-  if (fetchedDoctors.length > 3) {
+  if (fetchedDoctors && fetchedDoctors.length > 3) {
     displayDoctors = fetchedDoctors.slice(startIndex, startIndex + 3);
   }
 
@@ -46,7 +46,7 @@ function Home() {
   };
 
   const hasDoctorsOnLeft = startIndex > 0;
-  const hasDoctorsOnRight = startIndex + 3 < fetchedDoctors.length;
+  const hasDoctorsOnRight = startIndex + 3 < fetchedDoctors?.length;
 
   return (
     <>
