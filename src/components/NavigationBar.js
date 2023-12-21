@@ -17,17 +17,19 @@ function NavigationBar() {
   };
 
   const handleLogout = () => {
-    // Remove the token from local storage
     localStorage.removeItem('user');
-    // Redirect to the login page
     window.location.reload();
+  };
+
+  const closeMenu = () => {
+    setShowMenu(false);
   };
 
   return (
     <>
       <button
         type="button"
-        className="md:hidden absolute top-4 left-4 mr-4 p-2 text-gray-500 hover:text-gray-700 focus:outline-none f ocus:ring focus:ring-gray-200"
+        className="md:hidden absolute top-4 left-4 mr-4 p-2 text-gray-500 hover:text-gray-700 focus:outline-none focus:ring focus:ring-gray-200"
         onClick={toggleMenu}
       >
         {showMenu ? <CloseIcon /> : <MenuIcon />}
@@ -37,7 +39,7 @@ function NavigationBar() {
           <img src={logo} alt="" />
           <button
             type="button"
-            className="md:hidden absolute top-4 left-4 mr-4 p-2 text-gray-500 hover:text-gray-700 focus:outline-none f ocus:ring focus:ring-gray-200"
+            className="md:hidden absolute top-4 left-4 mr-4 p-2 text-gray-500 hover:text-gray-700 focus:outline-none focus:ring focus:ring-gray-200"
             onClick={toggleMenu}
           >
             {showMenu ? <CloseIcon /> : <MenuIcon />}
@@ -45,25 +47,25 @@ function NavigationBar() {
         </div>
         <nav className="w-full">
           <ul className="flex flex-col">
-            <NavLink to="/" className="active-link">
+            <NavLink to="/" className="active-link" onClick={closeMenu}>
               <li className="flex p-4 w-full text-sm font-medium cursor-pointer border-b border-gray-200">Doctors</li>
             </NavLink>
 
-            <NavLink to="/bookappointment" className="active-link">
+            <NavLink to="/bookappointment" className="active-link" onClick={closeMenu}>
               <li className="flex p-4 w-full text-sm font-medium cursor-pointer border-b border-gray-200">
                 Book Appointment
               </li>
             </NavLink>
 
-            <NavLink to="/myappointment" className="active-link">
+            <NavLink to="/myappointment" className="active-link" onClick={closeMenu}>
               <li className="flex p-4 w-full text-sm font-medium cursor-pointer border-b border-gray-200">My Appointments</li>
             </NavLink>
 
-            <NavLink to="/add-doctor" className="active-link">
+            <NavLink to="/add-doctor" className="active-link" onClick={closeMenu}>
               <li className="flex p-4 w-full text-sm font-medium cursor-pointer border-b border-gray-200">Add Doctor</li>
             </NavLink>
 
-            <NavLink to="/delete-doctor" className="active-link">
+            <NavLink to="/delete-doctor" className="active-link" onClick={closeMenu}>
               <li className="flex p-4 w-full text-sm font-medium cursor-pointer border-b border-gray-200">Delete Doctor</li>
             </NavLink>
             <li className="flex p-4 w-full text-sm font-medium cursor-pointer border-b border-gray-200">
