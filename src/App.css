@@ -2,6 +2,16 @@
   text-align: center;
 }
 
+.active {
+  background-color: #97bf0f;
+  color: white;
+}
+
+.active:hover {
+  background-color: #739408;
+  color: white;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -32,6 +42,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

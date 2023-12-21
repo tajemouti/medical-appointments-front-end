@@ -1,0 +1,422 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests AddDoctor component should render page 1`] = `
+<div
+  className="flex flex-row justify-center items-center w-[100dvw] h-[100dvh]"
+>
+  <div
+    className="md:flex md:w-[15%]"
+  >
+    <button
+      className="md:hidden absolute top-4 left-4 mr-4 p-2 text-gray-500 hover:text-gray-700 focus:outline-none f ocus:ring focus:ring-gray-200"
+      onClick={[Function]}
+      type="button"
+    >
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        data-testid="MenuIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+        />
+      </svg>
+    </button>
+    <div
+      className="hidden md:flex flex-col pt-4 pb-12 md:pb-1 justify-between items-center h-[100dvh] bg-white  w-full drop-shadow-md"
+    >
+      <div>
+        <img
+          alt=""
+          src="logo.svg"
+        />
+        <button
+          className="md:hidden absolute top-4 left-4 mr-4 p-2 text-gray-500 hover:text-gray-700 focus:outline-none f ocus:ring focus:ring-gray-200"
+          onClick={[Function]}
+          type="button"
+        >
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="MenuIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+            />
+          </svg>
+        </button>
+      </div>
+      <nav
+        className="w-full"
+      >
+        <ul
+          className="flex flex-col"
+        >
+          <a
+            aria-current="page"
+            className="active-link active"
+            href="/"
+            onClick={[Function]}
+          >
+            <li
+              className="flex p-4 w-full text-sm font-medium cursor-pointer border-b border-gray-200"
+            >
+              Doctors
+            </li>
+          </a>
+          <a
+            className="active-link"
+            href="/bookappointment"
+            onClick={[Function]}
+          >
+            <li
+              className="flex p-4 w-full text-sm font-medium cursor-pointer border-b border-gray-200"
+            >
+              Book Appointment
+            </li>
+          </a>
+          <a
+            className="active-link"
+            href="/myappointment"
+            onClick={[Function]}
+          >
+            <li
+              className="flex p-4 w-full text-sm font-medium cursor-pointer border-b border-gray-200"
+            >
+              My Appointments
+            </li>
+          </a>
+          <a
+            className="active-link"
+            href="/add-doctor"
+            onClick={[Function]}
+          >
+            <li
+              className="flex p-4 w-full text-sm font-medium cursor-pointer border-b border-gray-200"
+            >
+              Add Doctor
+            </li>
+          </a>
+          <a
+            className="active-link"
+            href="/delete-doctor"
+            onClick={[Function]}
+          >
+            <li
+              className="flex p-4 w-full text-sm font-medium cursor-pointer border-b border-gray-200"
+            >
+              Delete Doctor
+            </li>
+          </a>
+          <li
+            className="flex p-4 w-full text-sm font-medium cursor-pointer border-b border-gray-200"
+          >
+            <button
+              className="focus:outline-none"
+              onClick={[Function]}
+              type="button"
+            >
+              Logout
+            </button>
+          </li>
+        </ul>
+      </nav>
+      <footer
+        className="flex flex-col gap-4 w-full pt-4 pb-2 pl-4 pr-4"
+      >
+        <ul
+          className=" justify-start items-end gap-3.5 inline-flex"
+        >
+          <li
+            className="w-6 h-6 relative"
+          >
+            <img
+              alt=""
+              src="fb.svg"
+            />
+          </li>
+          <li
+            className="w-6 h-6 relative"
+          >
+            <img
+              alt=""
+              src="x.svg"
+            />
+          </li>
+          <li
+            className="w-6 h-6 relative"
+          >
+            <img
+              alt=""
+              src="google.svg"
+            />
+          </li>
+          <li
+            className="w-6 h-6 relative"
+          >
+            <img
+              alt=""
+              src="github.svg"
+            />
+          </li>
+          <li
+            className="w-6 h-6 relative"
+          >
+            <img
+              alt=""
+              src="linkedin.svg"
+            />
+          </li>
+        </ul>
+        <p
+          className="text-gray-300 text-xs font-medium font-['Inter'] leading-[18px] tracking-[2.88px]"
+        >
+          @ 2023 Health Clinic
+        </p>
+      </footer>
+    </div>
+  </div>
+  <div
+    className="flex flex-col h-full w-[85%] bg-white justify-center items-end"
+  >
+    <div
+      className="flex flex-col h-full justify-center items-center  md:items-end gap-12 md:pr-16 pr-0 w-full"
+    >
+      <div>
+        <h1
+          className="md:text-right md:text-slate-800 text-4xl md:text-6xl md:font-bold  font-bold text-center md:font-['Inter'] md:leading-[72px]"
+        >
+          Add Doctor
+        </h1>
+      </div>
+      <form
+        className="flex items-center flex-col w-full md:flex-row justify-center md:pl-4 gap-6"
+        onSubmit={[Function]}
+      >
+        <div
+          className="MuiFormControl-root MuiTextField-root w-full css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
+        >
+          <label
+            className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root"
+            data-shrink={false}
+            htmlFor="outlined-basics"
+            id="outlined-basics-label"
+          >
+            Enter Doctor
+            <span
+              aria-hidden={true}
+              className="MuiFormLabel-asterisk MuiInputLabel-asterisk css-wgai2y-MuiFormLabel-asterisk"
+            >
+               
+              *
+            </span>
+          </label>
+          <div
+            className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root"
+            onClick={[Function]}
+          >
+            <input
+              aria-invalid={false}
+              autoFocus={false}
+              className="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+              disabled={false}
+              id="outlined-basics"
+              onAnimationStart={[Function]}
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              required={true}
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden={true}
+              className="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+            >
+              <legend
+                className="css-yjsfm1"
+              >
+                <span>
+                  Enter Doctor
+                   
+                  *
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <div
+          className="MuiFormControl-root MuiTextField-root w-full css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
+        >
+          <label
+            className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root"
+            data-shrink={false}
+            htmlFor="outlined-basic"
+            id="outlined-basic-label"
+          >
+            Paste Picture Link
+            <span
+              aria-hidden={true}
+              className="MuiFormLabel-asterisk MuiInputLabel-asterisk css-wgai2y-MuiFormLabel-asterisk"
+            >
+               
+              *
+            </span>
+          </label>
+          <div
+            className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root"
+            onClick={[Function]}
+          >
+            <input
+              aria-invalid={false}
+              autoFocus={false}
+              className="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+              disabled={false}
+              id="outlined-basic"
+              onAnimationStart={[Function]}
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              required={true}
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden={true}
+              className="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+            >
+              <legend
+                className="css-yjsfm1"
+              >
+                <span>
+                  Paste Picture Link
+                   
+                  *
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <div
+          className="MuiFormControl-root MuiTextField-root w-full css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
+        >
+          <label
+            className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root"
+            data-shrink={false}
+            htmlFor="outlined-basic"
+            id="outlined-basic-label"
+          >
+            Enter Specialization
+            <span
+              aria-hidden={true}
+              className="MuiFormLabel-asterisk MuiInputLabel-asterisk css-wgai2y-MuiFormLabel-asterisk"
+            >
+               
+              *
+            </span>
+          </label>
+          <div
+            className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root"
+            onClick={[Function]}
+          >
+            <input
+              aria-invalid={false}
+              autoFocus={false}
+              className="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+              disabled={false}
+              id="outlined-basic"
+              onAnimationStart={[Function]}
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              required={true}
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden={true}
+              className="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+            >
+              <legend
+                className="css-yjsfm1"
+              >
+                <span>
+                  Enter Specialization
+                   
+                  *
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <div
+          className="MuiFormControl-root MuiTextField-root w-full css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
+        >
+          <label
+            className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root"
+            data-shrink={false}
+            htmlFor="outlined-basic"
+            id="outlined-basic-label"
+          >
+            Enter Address
+            <span
+              aria-hidden={true}
+              className="MuiFormLabel-asterisk MuiInputLabel-asterisk css-wgai2y-MuiFormLabel-asterisk"
+            >
+               
+              *
+            </span>
+          </label>
+          <div
+            className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root"
+            onClick={[Function]}
+          >
+            <input
+              aria-invalid={false}
+              autoFocus={false}
+              className="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+              disabled={false}
+              id="outlined-basic"
+              onAnimationStart={[Function]}
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              required={true}
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden={true}
+              className="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+            >
+              <legend
+                className="css-yjsfm1"
+              >
+                <span>
+                  Enter Address
+                   
+                  *
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+      </form>
+      <div>
+        <button
+          aria-label="Next"
+          className="p-4 self-end text-white bg-lime-500 rounded-r-[80px] rounded-l-[80px]"
+          onClick={[Function]}
+          type="submit"
+        >
+          Add Doctor
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
