@@ -7,6 +7,7 @@
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
   - [🚀 Live Demo](#live-demo)
+  - [Kanban Board](#kanban-board)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -44,6 +45,11 @@ React, redux, node, Visual Studia Code, WSL
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 - [Live Demo Link](https://jade-rabanadas-479b96.netlify.app/)
+
+## Kanban Board <a name="kanban-board"></a>
+
+- Kanban board [Link](https://github.com/users/tajemouti/projects/2/).
+- Kanban board initial state [screenshots](https://drive.google.com/drive/folders/11Uh-CsI_r65uAamgyMZMkqwdepEgTCUx?usp=sharing).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
