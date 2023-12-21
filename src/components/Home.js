@@ -12,21 +12,31 @@ function Home() {
   const fetchedDoctors = useSelector((state) => state.doctors.doctors);
   const [startIndex, setStartIndex] = useState(0);
   const [selectedDoctor, setSelectedDoctor] = useState(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
     const fetchData = async () => {
       await dispatch(fetchDoctors());
     };
     fetchData();
+
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, [dispatch]);
 
   let displayDoctors = [];
-  if (fetchedDoctors && fetchedDoctors.length > 3) {
-    displayDoctors = fetchedDoctors.slice(startIndex, startIndex + 3);
+  if (fetchedDoctors) {
+    displayDoctors = isMobile
+      ? fetchedDoctors.slice(startIndex, startIndex + 1)
+      : fetchedDoctors.slice(startIndex, startIndex + 3);
   }
 
   const handleNextClick = () => {
-    if (startIndex + 3 < fetchedDoctors.length) {
+    if (startIndex + (isMobile ? 1 : 3) < fetchedDoctors.length) {
       setStartIndex(startIndex + 1);
     }
   };
@@ -41,12 +51,12 @@ function Home() {
     setSelectedDoctor(doctor);
   };
 
-  const handleBackButtom = () => {
+  const handleBackButton = () => {
     setSelectedDoctor(null);
   };
 
   const hasDoctorsOnLeft = startIndex > 0;
-  const hasDoctorsOnRight = startIndex + 3 < fetchedDoctors?.length;
+  const hasDoctorsOnRight = startIndex + (isMobile ? 1 : 3) < fetchedDoctors?.length;
 
   return (
     <>
@@ -56,39 +66,37 @@ function Home() {
         </div>
         <div className="flex flex-col md:w-[85%] w-[100%] bg-white justify-center items-center ">
           {selectedDoctor ? (
-            <DoctorDetails doctor={selectedDoctor} backButton={handleBackButtom} />
+            <DoctorDetails doctor={selectedDoctor} backButton={handleBackButton} />
           ) : (
             <>
-              <h1 className="text-slate-800 text-4xl font-bold font-['Inter'] leading-[44px] mb-8">Our Doctors</h1>
+              <h1 className="text-slate-800 text-4xl font-bold font-['Inter'] leading-[44px] m-8">Our Doctors</h1>
               <div className="flex flex-col md:flex md:flex-row md:justify-center md:items-center gap-4">
-                {
-                  displayDoctors.map((doctor) => (
-                    <button
-                      key={doctor.id}
-                      type="button"
-                      onClick={() => handleDoctorClick(doctor)}
-                      className="flex items-center justify-center flex-col p-4 rounded-xl gap-4 border-2 border-gray-100 flex-1 "
-                    >
-                      <div className="gap-4">
-                        <img className="w-[189px] h-[189px] rounded-full" src={doctor.picture} alt="" />
-                      </div>
-                      <div className=" flex flex-col justify-center gap-2">
-                        <h2 className="text-slate-800 text-lg text-center font-medium text-ellipsis overflow-hidden w-[250px] whitespace-nowrap">{doctor.name}</h2>
-                        <hr />
-                        <h2 className="text-gray-300 text-sm text-center font-normal text-ellipsis overflow-hidden w-[250px] whitespace-nowrap">{doctor.speciality}</h2>
-                      </div>
-                      <ul className="flex gap-4 justify-around w-full">
-                        <li className="w-8 h-8 rounded-full border border-gray-300 flex justify-center items-center"><img className="w-4 h-4 relative" src={x} alt="" /></li>
-                        <li className="w-8 h-8 rounded-full border border-gray-300 flex justify-center items-center"><img className="w-4 h-4 relative" src={x} alt="" /></li>
-                        <li className="w-8 h-8 rounded-full border border-gray-300 flex justify-center items-center"><img className="w-4 h-4 relative" src={x} alt="" /></li>
-                      </ul>
-                    </button>
-                  ))
-                }
+                {displayDoctors.map((doctor) => (
+                  <button
+                    key={doctor.id}
+                    type="button"
+                    onClick={() => handleDoctorClick(doctor)}
+                    className="flex items-center justify-center flex-col p-4 rounded-xl gap-4 border-2 border-gray-100 flex-1 "
+                  >
+                    <div className="gap-4">
+                      <img className="w-[189px] h-[189px] rounded-full" src={doctor.picture} alt="" />
+                    </div>
+                    <div className=" flex flex-col justify-center gap-2">
+                      <h2 className="text-slate-800 text-lg text-center font-medium text-ellipsis overflow-hidden w-[250px] whitespace-nowrap">{doctor.name}</h2>
+                      <hr />
+                      <h2 className="text-gray-300 text-sm text-center font-normal text-ellipsis overflow-hidden w-[250px] whitespace-nowrap">{doctor.speciality}</h2>
+                    </div>
+                    <ul className="flex gap-4 justify-around w-full">
+                      <li className="w-8 h-8 rounded-full border border-gray-300 flex justify-center items-center"><img className="w-4 h-4 relative" src={x} alt="" /></li>
+                      <li className="w-8 h-8 rounded-full border border-gray-300 flex justify-center items-center"><img className="w-4 h-4 relative" src={x} alt="" /></li>
+                      <li className="w-8 h-8 rounded-full border border-gray-300 flex justify-center items-center"><img className="w-4 h-4 relative" src={x} alt="" /></li>
+                    </ul>
+                  </button>
+                ))}
               </div>
-              <div className="flex justify-between w-[85%] mt-4 absolute">
+              <div className="flex justify-between w-[100%] md:w-[85%] md:mt-4 md:absolute bottom-0 md:bottom-[40%]">
                 <button
-                  className={`hidden md:block md:w-[114px] md:h-[74px] md:rounded-r-[80px] ${hasDoctorsOnLeft ? 'bg-lime-500' : 'bg-gray-300'} `}
+                  className={`w-[114px] h-[74px] rounded-r-[80px] ${hasDoctorsOnLeft ? 'bg-lime-500' : 'bg-gray-300'} `}
                   type="button"
                   onClick={handlePrevClick}
                   disabled={!hasDoctorsOnLeft}
@@ -98,7 +106,7 @@ function Home() {
                 </button>
 
                 <button
-                  className={`hidden md:block md:w-[114px] md:h-[74px] md:rounded-l-[80px] ${hasDoctorsOnRight ? 'bg-lime-500' : 'bg-gray-300'}`}
+                  className={`w-[114px] h-[74px] rounded-l-[80px] ${hasDoctorsOnRight ? 'bg-lime-500' : 'bg-gray-300'}`}
                   type="button"
                   onClick={handleNextClick}
                   disabled={!hasDoctorsOnRight}
