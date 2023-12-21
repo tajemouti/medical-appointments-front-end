@@ -76,11 +76,11 @@ function BookAppointment() {
 
   return (
     <>
-      <div className="flex flex-row justify-center items-center md:items-end w-[100dvw] h-[100dvh]">
+      <div className="flex flex-row justify-center items-center md:items-end w-[100vw] h-[100vh] overflow-hidden">
         <div className="md:flex md:w-[15%]">
           <NavigationBar />
         </div>
-        <div className="flex flex-col h-full items-center md:items-end w-[85%] bg-white justify-center">
+        <div className="flex flex-col h-full items-center md:items-end w-[85%] bg-white justify-center overflow-hidden">
           <div className="flex h-full flex-col justify-center  items-end gap-12 md:pr-16 pr-0 w-full">
             <div>
               <h1 className="md:text-right md:text-slate-800 text-4xl md:text-6xl md:font-bold  font-bold text-center md:font-['Inter'] md:leading-[72px]">Book Appointment</h1>
