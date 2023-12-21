@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { NavLink } from 'react-router-dom';
@@ -11,6 +11,13 @@ import linkedin from '../images/linkedin.svg';
 
 function NavigationBar() {
   const [showMenu, setShowMenu] = useState(false);
+  const [username, setUsername] = useState('');
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    const userUsername = user && user.username;
+    setUsername(userUsername);
+  }, []);
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
@@ -45,6 +52,10 @@ function NavigationBar() {
             {showMenu ? <CloseIcon /> : <MenuIcon />}
           </button>
         </div>
+        <p className="flex items-center p-4 w-full text-sm">
+          <span className="mr-2">Hello</span>
+          <span className="font-medium text-slate-800">{username}</span>
+        </p>
         <nav className="w-full">
           <ul className="flex flex-col">
             <NavLink to="/" className="active-link" onClick={closeMenu}>
