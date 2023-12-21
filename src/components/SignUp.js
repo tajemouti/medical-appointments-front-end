@@ -1,5 +1,4 @@
-import { Button } from '@mui/material';
-import TextField from '@mui/material/TextField';
+import { Button, CircularProgress, TextField } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
@@ -16,15 +15,24 @@ function SignUp() {
   });
   const dispatch = useDispatch();
   const createUserResponse = useSelector((state) => state.user.createUserMsg.token);
+  const [loading, setLoading] = useState(false);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await dispatch(createUser(dataReg));
+    setLoading(true);
+
+    try {
+      await dispatch(createUser(dataReg));
+    } finally {
+      setLoading(false);
+    }
   };
+
   useEffect(() => {
     if (createUserResponse) {
       navigate('/');
     }
-  }, [dispatch, createUserResponse, navigate]);
+  }, [createUserResponse, navigate]);
 
   const handleUsernameChange = (e) => {
     setDataReg({ ...dataReg, user: { ...dataReg.user, username: e.target.value } });
@@ -60,8 +68,12 @@ function SignUp() {
               variant="outlined"
             />
             <div className="flex gap-4">
-              <Button variant="outlined"><Link to="/">Log in</Link></Button>
-              <Button type="submit" variant="outlined">Sign Up</Button>
+              <Button variant="outlined">
+                <Link to="/">Log in</Link>
+              </Button>
+              <Button type="submit" variant="outlined" disabled={loading}>
+                {loading ? <CircularProgress size={24} /> : 'Sign Up'}
+              </Button>
             </div>
           </form>
         </div>
