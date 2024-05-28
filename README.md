@@ -44,7 +44,7 @@ React, redux, node, Visual Studia Code, WSL
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://jade-rabanadas-479b96.netlify.app/)
+- [Live Demo Link](https://tajemouti-health-clinic.netlify.app/)
 
 ## Kanban Board <a name="kanban-board"></a>
 
